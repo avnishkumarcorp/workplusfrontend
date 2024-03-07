@@ -1,0 +1,128 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #c9ccd3;
+  background-image: linear-gradient(
+    -180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  background-blend-mode: lighten;
+  position: relative;
+
+ 
+
+
+  .ractangle {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    rotate: 45deg;
+    top: 30px;
+    left: 30px;
+    animation: mymove3 1s infinite;
+    background-color: #fff;
+    background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+    box-shadow: 26px 26px 72px #c7c7c7, -26px -26px 84px #f9f9f9;
+  }
+
+  .ractangle-two {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    rotate: 45deg;
+    right: 30px;
+    bottom: 30px;
+    animation: mymove3 1s infinite;
+    background-color: #fff;
+    background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+    box-shadow: 26px 26px 72px #c7c7c7, -26px -26px 84px #f9f9f9;
+  }
+
+  .login-form {
+    border: 1px solid #fff;
+    box-shadow: 26px 26px 72px #c7c7c7, -26px -26px 84px #f9f9f9;
+    padding: 70px 40px;
+    width: 430px;
+    min-height: 600px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 99;
+    .forget-pass{
+      font-size: 15px;
+      font-weight: 700;
+      color: #c850c0;
+      display: block;
+      padding-top: 25px;
+      &:hover{
+        text-decoration: none;
+      }
+      
+    }
+    .account-not{
+      padding: 15px 0px;
+      font-size: 14px;
+      font-weight: 700;
+      .going-link{
+        color: #4158d0;
+        margin-left: 2px;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .main-heading {
+    background-color: -webkit-linear-gradient(105deg, #4158d0 41%, #c850c0 46%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes mymove {
+  0% {
+    width: 300px;
+    height: 300px;
+  }
+  50% {
+    width: 120px;
+    height: 120px;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@keyframes mymove2 {
+  0% {
+    width: 200px;
+    height: 200px;
+  }
+  50% {
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@keyframes mymove3 {
+  0% {
+    width: 30px;
+    height: 30px;
+  }
+  50% {
+    width: 31px;
+    height: 31px;
+  }
+  100% {
+    width: 30px;
+    height: 30px;
+  }
+}
