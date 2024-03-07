@@ -38,6 +38,8 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+
+
 .small-heading {
   font-size: 22px;
   font-weight: 600;
@@ -67,5 +69,9 @@ body {
 
 .login-btn:focus {
   outline: none;
+}
+
+.common-gap{
+  padding: 20px;
 }
 
