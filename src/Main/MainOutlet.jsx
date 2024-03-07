@@ -1,6 +1,7 @@
 import React from "react";
 import "./MainOutlet.scss"
 import { Outlet } from "react-router-dom";
+import TopNav from "./TopNav";
 
 const MainOutlet = () => {
   return (
@@ -9,7 +10,7 @@ const MainOutlet = () => {
        <h1>sidebar</h1>
       </div>
       <div className="right-data">
-        <h1>top nav</h1>
+        <TopNav />
         <Outlet />
       </div>
     </div>
