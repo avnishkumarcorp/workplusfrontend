@@ -1,0 +1,19 @@
+.input-field {
+  position: relative;
+  .side-icon {
+    position: absolute;
+    top: 12px;
+    font-size: 18px;
+  }
+  .my-input {
+    width: 100%;
+    padding: 8px 24px;
+    border: none;
+    border-bottom: 1px solid gray;
+    margin-bottom: 25px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

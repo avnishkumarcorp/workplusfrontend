@@ -4,7 +4,68 @@
   box-sizing: border-box;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:ital,wght@0,400;0,600;1,400;1,500&display=swap");
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif; */
+
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;700&display=swap");
+
 
 body {
+  font-family: "Raleway", sans-serif;
   overflow-x: hidden;
 }
+
+:root {
+  --main-gradient: -webkit-linear-gradient(105deg, #4158d0 41%, #c850c0 46%);
+  --main-hover-gradient: -webkit-linear-gradient(
+    105deg,
+    #c850c0 41%,
+    #4158d0 46%
+  );
+  --white: #ffffff;
+  --black: #000000;
+}
+
+
+.main-heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.small-heading {
+  font-size: 22px;
+  font-weight: 600;
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-btn {
+  padding: 12px 24px;
+  background: var(--main-gradient);
+  border-radius: 10px;
+  color: var(--white);
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: var(--main-hover-gradient);
+}
+
+.login-btn:focus {
+  outline: none;
+}
+
