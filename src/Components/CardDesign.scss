@@ -1,0 +1,22 @@
+.card-design{
+    padding: 10px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,.2);
+    .card-heading{
+        font-size: 18px;
+        font-weight: 600;
+        background: var(--main-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .card-content{
+        font-size: 24px;
+        font-weight: 600;
+        background: var(--main-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+.sm-box{ 
+    height: 200px;
+    width: 100%;
+}
+}
