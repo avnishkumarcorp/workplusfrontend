@@ -1,0 +1,26 @@
+
+.main-page {
+    background-color:#093252;
+    color: #fff;
+    display: flex;
+    height: 100vh;
+    .side-nav {
+      width: 250px;
+      position: sticky;
+      top: 0;
+      overflow: auto;
+      padding: 0px;
+      background-color: red;
+      border-right: 1px solid #000;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .right-data {
+      background-color: #fff;
+      flex: 10;
+      color: #000;
+      overflow: auto;
+    }
+  }
+  
