@@ -19,6 +19,8 @@ body {
 
 :root {
   --main-gradient: -webkit-linear-gradient(105deg, #4158d0 41%, #c850c0 46%);
+  --light-black: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,1) 100%), radial-gradient(at top center, rgba(255,255,255,0.90) 0%, rgba(0,0,0,0.40) 120%) #989898;
+  background-blend-mode: multiply,multiply;
   --main-hover-gradient: -webkit-linear-gradient(
     105deg,
     #c850c0 41%,
