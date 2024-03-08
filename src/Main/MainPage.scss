@@ -1,7 +1,16 @@
-.chart-box{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.chart-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px 0px;
+  gap: 30px;
+}
+
+.productive-bar {
     padding: 20px 0px;
-    gap: 30px;
-  
+    box-shadow: 1px solid rgba(0,0,0,.2);
+    border: 1px solid #fff;
+    .bar-graph {
+    height: 400px;
+    width: 100%;
+  }
 }

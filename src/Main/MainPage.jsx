@@ -3,6 +3,8 @@ import "./MainPage.scss"
 import CardChart from "../Charts/CardChart"
 import { fakeData } from "../data/fakeData"
 import CardDesign from "../Components/CardDesign"
+import { BarChart } from "recharts"
+import BarChartData from "../Charts/BarChartData"
 
 const MainPage = () => {
   return (
@@ -19,6 +21,13 @@ const MainPage = () => {
         />
         <CardDesign heading="Time at Work" data={fakeData} contant="05h 01m" />
         <CardDesign heading="Productivity" data={fakeData} contant="75.30%" />
+      </div>
+
+      <div className="productive-bar">
+        <h3 className="small-heading my-3">Productivity Bar</h3>
+        <div className="bar-graph">
+          <BarChartData />
+        </div>
       </div>
     </div>
   )
