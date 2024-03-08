@@ -1,3 +1,11 @@
 .sidebar-data{
-    
+    padding: 16px 8px;
+    text-align: center;
+    .side-buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
 }
