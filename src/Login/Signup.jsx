@@ -9,7 +9,7 @@ const Signup = () => {
     <div className="left-circle">
       <div className="small-circle"></div>
     </div>
-    <div className="right-circle">
+    <div className="right-circle">  
       <div className="small-circle"></div>
     </div>
     <div className="ractangle"></div>

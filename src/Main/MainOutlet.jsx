@@ -8,7 +8,7 @@ const MainOutlet = () => {
   return (
     <div className="main-page">
       <div className="side-nav">
-       <SideBar />
+       <SideBar />  
       </div>
       <div className="right-data">
         <TopNav />
