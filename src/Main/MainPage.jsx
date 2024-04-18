@@ -5,11 +5,13 @@ import { fakeData } from "../data/fakeData"
 import CardDesign from "../Components/CardDesign"
 import { BarChart } from "recharts"
 import BarChartData from "../Charts/BarChartData"
+import CmGap from "../Components/CmGap"
+import MdHeading from "../Components/MdHeading"
 
 const MainPage = () => {
   return (
-    <div className="common-gap">
-      <h1 className="small-heading">My Desktime</h1>
+    <CmGap>
+      <MdHeading data={`My Desktime`} />
       <div className="chart-box">
         <CardDesign heading="Arrival Time" data={fakeData} contant="09:01" />
         <CardDesign heading="Left Time" data={fakeData} contant="ONLINE" />
@@ -29,7 +31,7 @@ const MainPage = () => {
           <BarChartData />
         </div>
       </div>
-    </div>
+    </CmGap>
   )
 }
 

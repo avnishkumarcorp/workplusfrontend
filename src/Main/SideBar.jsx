@@ -6,10 +6,12 @@ import SideBarBtn from "../Components/SideBarBtn"
 const SideBar = () => {
   return (
     <div className="sidebar-data">
-      <h3><i class="fa-regular mr-2 fa-clock"></i>DeskTime</h3>
+      <h3><i className="fa-regular mr-2 fa-clock"></i>DeskTime</h3>
       <div className="side-buttons">
-      <SideBarBtn name="My Desktime" icon={<i class="fa-solid fa-desktop"></i>} />
-      <SideBarBtn name="Screen Shot" icon={<i class="fa-regular fa-image"></i>} />
+      <SideBarBtn linkPath={``} name="My Desktime" icon={<i className="fa-solid fa-desktop"></i>} />
+      <SideBarBtn linkPath={`screenshot`} name="Screen Shot" icon={<i className="fa-regular fa-image"></i>} />
+      <SideBarBtn linkPath={`users`} name="Users" icon={<i className="fa-solid fa-user"></i>} />
+
       </div>
     </div>
   )

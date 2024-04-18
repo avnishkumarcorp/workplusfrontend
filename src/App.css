@@ -50,6 +50,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.scalaton-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
 .login-btn {
   padding: 12px 24px;
   background: var(--main-gradient);
