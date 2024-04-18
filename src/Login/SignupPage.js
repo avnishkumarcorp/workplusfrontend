@@ -19,22 +19,22 @@ const SignupPage = () => {
         <h2 className="main-heading">Sign Up</h2>
         <div className="py-4">
           <InputComponent
-            icon={<i class="fa-regular side-icon fa-user"></i>}
+            icon={<i className="fa-regular side-icon fa-user"></i>}
             type="text"
             placeholder="Enter Your Name"
           />
           <InputComponent
-            icon={<i class="fa-regular side-icon fa-envelope"></i>}
+            icon={<i className="fa-regular side-icon fa-envelope"></i>}
             type="email"
             placeholder="Enter Your Email"
           />
           <InputComponent
-            icon={<i class="fa-solid side-icon fa-lock"></i>}
+            icon={<i className="fa-solid side-icon fa-lock"></i>}
             type="password"
             placeholder="Enter Your password"
           />
           <InputComponent
-            icon={<i class="fa-solid side-icon fa-lock"></i>}
+            icon={<i className="fa-solid side-icon fa-lock"></i>}
             type="password"
             placeholder="Enter Your Confirm password"
           />
