@@ -6,11 +6,12 @@ import CardDesign from "../Components/CardDesign"
 import { BarChart } from "recharts"
 import BarChartData from "../Charts/BarChartData"
 import CmGap from "../Components/CmGap"
+import MdHeading from "../Components/MdHeading"
 
 const MainPage = () => {
   return (
     <CmGap>
-      <h1 className="small-heading">My Desktime</h1>
+      <MdHeading data={`My Desktime`} />
       <div className="chart-box">
         <CardDesign heading="Arrival Time" data={fakeData} contant="09:01" />
         <CardDesign heading="Left Time" data={fakeData} contant="ONLINE" />

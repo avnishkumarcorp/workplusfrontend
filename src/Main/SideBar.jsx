@@ -10,7 +10,7 @@ const SideBar = () => {
       <div className="side-buttons">
       <SideBarBtn linkPath={``} name="My Desktime" icon={<i className="fa-solid fa-desktop"></i>} />
       <SideBarBtn linkPath={`screenshot`} name="Screen Shot" icon={<i className="fa-regular fa-image"></i>} />
-      <SideBarBtn linkPath={`users`} name="Users" icon={<i class="fa-solid fa-user"></i>} />
+      <SideBarBtn linkPath={`users`} name="Users" icon={<i className="fa-solid fa-user"></i>} />
 
       </div>
     </div>
