@@ -4,6 +4,7 @@ import MdHeading from "../Components/MdHeading"
 import { allUsersFun } from "../Toolkit/AllUsersSlice"
 import { useDispatch, useSelector } from "react-redux"
 import TableComp from "../Components/TableComp"
+import CmBtn from "../Components/CmBtn"
 
 const AllUsers = () => {
   const dispatch = useDispatch()
@@ -41,7 +42,10 @@ const AllUsers = () => {
 
   return (
     <CmGap>
+      <div className="align-between">
       <MdHeading data={`All Users`} />
+      <CmBtn data={`Create New user`}  />
+      </div>
       <TableComp
         loading={userLoading}
         error={userError}
