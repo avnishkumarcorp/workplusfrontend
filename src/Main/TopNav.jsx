@@ -1,32 +1,25 @@
-import React from "react";
+import React from "react"
 import "./TopNav.scss"
+import { useSelector } from "react-redux"
 
 const TopNav = () => {
-  return (
-    <div className="top-navbar">
-    <div className="top-search-box">
-      {/* <i className="fa-solid search-icon fa-magnifying-glass"></i>
-      <input className="search-box" type="search" placeholder="Serach..." /> */}
-    </div>
-    {/* <div className="user-profile">
-      <button className="btn btn-primary" onClick={logoutUser}>Logout</button>
-      <div className="profile-image">
-        <img
-          src={`https://images.pexels.com/photos/17739178/pexels-photo-17739178.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}
-        />
+
+  const {username, email} = useSelector(
+    (prev) => prev?.auth?.currentUser?.data?.user
+  )
+  console.log(username, email);
+
+  return <div className="top-navbar">
+    <div className="user-profile">
+      <div className="user-image">
+        <img src="https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
       </div>
-      <div className="profile-info">
-        <h4>Rahul jain</h4>
-        <h5>Corpseed</h5>
-      </div>
-    </div> */}
-    <div>
-      <div className="notes-box">
-    
+      <div className="user-data">
+        <p>{username}</p>
+        <h3>{email}</h3>
       </div>
     </div>
   </div>
-  )
-};
+}
 
-export default TopNav;
+export default TopNav

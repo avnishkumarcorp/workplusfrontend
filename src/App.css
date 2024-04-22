@@ -40,11 +40,53 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.align-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cm-btn-one{
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  padding: 4px 8px;
+  outline: none;
+  border: 1px solid #fff;
+  box-shadow: 0px 5px 11px rgba(0,0,0,.2);
+}
+.cm-btn-one:hover{
+  background-color: #4158d0;
+  color: #fff;
+}
+
+.cm-btn-one:focus{
+  outline: none;
+}
+
+.red-cl{
+  color: #ff6060;
+}
+
+.green-cl{
+  color: #49cc90;
+}
+
+.three-item{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 30px 0px;
+}
+
+
+
 
 
 .small-heading {
   font-size: 22px;
   font-weight: 600;
+  margin-bottom: 0px;
   background: var(--main-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

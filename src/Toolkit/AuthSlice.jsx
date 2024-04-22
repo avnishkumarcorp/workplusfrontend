@@ -18,18 +18,15 @@ export const AuthSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(authDataFun.pending, (state, action) => {
-      console.log("pending...", action)
       state.loading = true
       state.error = false
     })
     builder.addCase(authDataFun.fulfilled, (state, action) => {
-      console.log("fulfilled...", action)
       state.currentUser = action.payload
       state.loading = false
       state.error = false
     })
     builder.addCase(authDataFun.rejected, (state, action) => {
-      console.log("rejected...", action)
       state.loading = false
       state.error = true
     })

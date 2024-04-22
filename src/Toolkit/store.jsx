@@ -6,10 +6,14 @@ import persistStore from "redux-persist/es/persistStore"
 import AuthSlice from "./AuthSlice"
 import { configureStore } from "@reduxjs/toolkit"
 import AllUsersSlice from "./AllUsersSlice"
+import MainDataSlice from "./MainDataSlice"
+import RoleSlice from "./RoleSlice"
 
 const reducers = combineReducers({
   auth: AuthSlice,
   alluser: AllUsersSlice,
+  mainData: MainDataSlice,
+  role: RoleSlice,
 })
 
 const persistConfig = {

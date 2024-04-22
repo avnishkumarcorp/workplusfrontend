@@ -1,10 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { getQuery } from "../API/GetQuery"
+import { postQuery } from "../API/PostQuery"
 
 export const allUsersFun = createAsyncThunk('all-users-data', async () => {
     const getUsersData = await getQuery(`${process.env.REACT_APP_BASE_URL}allUsersList`) 
     return getUsersData?.data
 })
+
+export const createUserFun = createAsyncThunk('create-all-users', async () => {
+  const createUser = await postQuery(`${process.env.REACT_APP_BASE_URL}`) 
+})
+
+
 
 
 export const AllUsersSlice = createSlice({
@@ -16,18 +23,15 @@ export const AllUsersSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(allUsersFun.pending, (state, action) => {
-            console.log("pending...", action)
             state.userLoading = true
             state.userError = false
           })
           builder.addCase(allUsersFun.fulfilled, (state, action) => {
-            console.log("fulfilled...", action)
             state.allUsers = action.payload
             state.userLoading = false
             state.userError = false
           })
           builder.addCase(allUsersFun.rejected, (state, action) => {
-            console.log("rejected...", action)
             state.userLoading = false
             state.userError = true
           })

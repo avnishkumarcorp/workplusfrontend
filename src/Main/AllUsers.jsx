@@ -4,6 +4,8 @@ import MdHeading from "../Components/MdHeading"
 import { allUsersFun } from "../Toolkit/AllUsersSlice"
 import { useDispatch, useSelector } from "react-redux"
 import TableComp from "../Components/TableComp"
+import CmBtn from "../Components/CmBtn"
+import CmModel from "../Model/CmModel"
 
 const AllUsers = () => {
   const dispatch = useDispatch()
@@ -20,6 +22,7 @@ const AllUsers = () => {
 
 
   const deleteUserFun =  () => {
+    
     if(window.confirm("Are You Want to Sure ?")){
         console.log("User Delete SUccesfully");
     }
@@ -28,20 +31,27 @@ const AllUsers = () => {
 
 
   const columns = [
-    { field: "id", headerName: "ID", width: 150 },
-    { field: "username", headerName: "User Name", width: 350 },
-    { field: "email", headerName: "Email ID", width: 350 },
+    { field: "id", headerName: "ID", width: 60 },
+    { field: "username", headerName: "User Name", width: 200 },
+    { field: "email", headerName: "Email ID", width: 300 },
+    { field: "createdAt", headerName: "Created Date", width: 200, renderCell: (props) => <p>{new Date(props?.row?.createdAt).toLocaleDateString()}</p> },
+   
+    { field: "role", headerName: "Role", width: 100, renderCell:(props) => <p>{props?.row?.roles[0]}</p>  },
     {
       field: "Delete",
       headerName: "Delete",
-      width: 350,
+      width: 200,
       renderCell: () => <p onClick={deleteUserFun}><i class="fa-solid fa-trash"></i></p>,
     },
   ]
 
   return (
     <CmGap>
+      <div className="align-between">
       <MdHeading data={`All Users`} />
+      
+      <CmModel data={`Create New user`} />
+      </div>
       <TableComp
         loading={userLoading}
         error={userError}
