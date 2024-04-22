@@ -60,6 +60,10 @@ body {
   color: #fff;
 }
 
+.cm-btn-one:focus{
+  outline: none;
+}
+
 .red-cl{
   color: #ff6060;
 }
@@ -67,6 +71,15 @@ body {
 .green-cl{
   color: #49cc90;
 }
+
+.three-item{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 30px 0px;
+}
+
+
 
 
 

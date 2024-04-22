@@ -1,10 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { getQuery } from "../API/GetQuery"
+import { postQuery } from "../API/PostQuery"
 
 export const allUsersFun = createAsyncThunk('all-users-data', async () => {
     const getUsersData = await getQuery(`${process.env.REACT_APP_BASE_URL}allUsersList`) 
     return getUsersData?.data
 })
+
+export const createUserFun = createAsyncThunk('create-all-users', async () => {
+  const createUser = await postQuery(`${process.env.REACT_APP_BASE_URL}`) 
+})
+
+
 
 
 export const AllUsersSlice = createSlice({

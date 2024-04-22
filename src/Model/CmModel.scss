@@ -1,0 +1,23 @@
+.input-model{
+    width: 100%;
+    border: 1px solid #d5d5d5;
+    padding: 4px 8px;
+  }
+  .input-model:focus{
+    outline: none;
+  }
+
+  .input-model::placeholder{
+    font-size: 14px;
+  }
+  
+  .model-label{
+    margin-bottom: 2px;
+      font-size: 14px;
+  }
+  
+  .model-btn-box{
+    padding: 10px 0px;
+    display: flex;
+    justify-content: flex-end;
+  }
