@@ -1,7 +1,7 @@
 import React from "react"
 
 const ModelDropDown = React.forwardRef(
-  ({ className = "", props, type, name, labelData, val }, ref) => {
+  ({ className = "", type, name, labelData, val, ...props }, ref) => {
     return (
       <div className="py-1">
         {labelData && <label className="model-label">{labelData}</label>}
@@ -13,7 +13,7 @@ const ModelDropDown = React.forwardRef(
         >
           <option>Select Role</option>
           {val?.map((v, index) => (
-            <option key={index} value={v?.value}>
+            <option key={index} value={v?.label}>
               {v?.label}
             </option>
           ))}
