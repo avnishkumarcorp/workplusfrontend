@@ -8,6 +8,7 @@ import MdHeading from "../Components/MdHeading"
 import { useDispatch, useSelector } from "react-redux"
 import { mainDataFun } from "../Toolkit/MainDataSlice"
 import getHoursMinutesDifference from "../data/dateFunctions"
+import ProcessDataComp from "../Components/ProcessDataComp"
 
 const MainPage = () => {
   const userEmail = useSelector(
@@ -80,6 +81,7 @@ const MainPage = () => {
           <BarChartData />
         </div>
       </div>
+        <ProcessDataComp />
     </CmGap>
   )
 }
