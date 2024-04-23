@@ -14,7 +14,6 @@ const MainPage = () => {
   const userEmail = useSelector(
     (prev) => prev?.auth?.currentUser?.data?.user?.email
   )
-  console.log("user email ", userEmail)
 
   const dispatch = useDispatch()
 

@@ -22,7 +22,7 @@ const AllUsers = () => {
     (prev) => prev?.alluser
   )
 
-  console.log(allUsers, userLoading, userError)
+ 
 
   useEffect(() => {
     dispatch(allUsersFun())
@@ -31,7 +31,6 @@ const AllUsers = () => {
   const deleteExistUserFun = async (id) => {
     if (window.confirm("Are You Want to Sure ?")) {
       const delUser = await dispatch(deleteUserFun(userid))
-      console.log(delUser)
     }
   }
 

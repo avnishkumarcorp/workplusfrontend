@@ -7,7 +7,6 @@ const TopNav = () => {
   const {username, email} = useSelector(
     (prev) => prev?.auth?.currentUser?.data?.user
   )
-  console.log(username, email);
 
   return <div className="top-navbar">
     <div className="user-profile">

@@ -29,10 +29,8 @@ const LoginPage = () => {
     }
 
     // const userApiRes = await postQuery(`${process.env.REACT_APP_BASE_URL}login`, userLogin);
-    console.log("api res", userApiRes);
   }
 
-  console.log("user login", userLogin)
 
   return (
     <div className="login-page">

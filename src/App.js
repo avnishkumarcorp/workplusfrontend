@@ -17,12 +17,9 @@ function App() {
   // },[])
 
   const apiData = async () => {
-    console.log("api callling ....");
     try{
     const data = await getQuery(`http://localhost:8888/saveDailyActivity`);
-    console.log(data);
     }catch(err){
-      console.log(err);
     }
   }
 

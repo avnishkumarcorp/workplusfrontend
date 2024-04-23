@@ -15,13 +15,11 @@ const ProcessDataComp = () => {
 
   const alldata = useSelector((prev) => prev?.allprocess?.allprocess)
 
-  console.log("all Process", alldata)
-
+ 
   useEffect(() => {
     dispatch(allProcessFun(userEmail))
   }, [dispatch])
 
-  console.log(processData)
   return (
     <div className="process-box">
       {alldata?.map((data, index) => (
