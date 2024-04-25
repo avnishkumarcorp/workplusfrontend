@@ -14,9 +14,6 @@ const CreateUserModel = () => {
     (prev) => prev?.alluser
   )
 
- 
-
-  
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -30,7 +27,6 @@ const CreateUserModel = () => {
   const createNewUser = async (e) => {
     e.preventDefault()
     const createUserRes = await dispatch(createUserFun(userData))
-    console.log("user Response", createUserRes)
     window.location.reload()
   }
 
@@ -40,8 +36,7 @@ const CreateUserModel = () => {
 
   const userRoles = useSelector((prev) => prev?.role?.allRoles)
 
-  console.log("roles", userRoles)
-
+  
   const roles = [
     { id: 1, name: "ADMIN" },
     { id: 2, name: "USER" },

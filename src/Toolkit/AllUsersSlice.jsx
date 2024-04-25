@@ -31,6 +31,19 @@ export const deleteUserFun = createAsyncThunk(
   }
 )
 
+
+// http://localhost:8888/userDetails?usernameMail=rahul.jain%40corpseed.com
+
+export const getCurrentUserFun = createAsyncThunk("geycurrentuser", async (email) => {
+  const getSingleUser = await getQuery(`${process.env.REACT_APP_BASE_URL}userDetails?usernameMail=${email}`);
+  console.log("user data", getSingleUser);
+  return getSingleUser
+})
+
+
+
+
+
 export const AllUsersSlice = createSlice({
   name: "alluser",
   initialState: {
@@ -43,6 +56,9 @@ export const AllUsersSlice = createSlice({
     deleteUser: false,
     deluserLoading: false,
     delUserError: false,
+    singleUser: {},
+    singleUserLoading: false,
+    singleUserError: false,
   },
   extraReducers: (builder) => {
     builder.addCase(allUsersFun.pending, (state, action) => {
@@ -85,6 +101,19 @@ export const AllUsersSlice = createSlice({
     builder.addCase(deleteUserFun.rejected, (state, action) => {
       state.deluserLoading = false
       state.delUserError = true
+    })
+    builder.addCase(getCurrentUserFun.pending, (state, action) => {
+      state.singleUserLoading = true
+      state.singleUserError = false
+    })
+    builder.addCase(getCurrentUserFun.fulfilled, (state, action) => {
+      state.singleUser = action.payload
+      state.singleUserLoading = false
+      state.singleUserError = false
+    })
+    builder.addCase(getCurrentUserFun.rejected, (state, action) => {
+      state.singleUserLoading = false
+      state.singleUserError = true
     })
   },
 })

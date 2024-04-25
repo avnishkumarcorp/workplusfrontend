@@ -3,9 +3,19 @@ import { getQuery } from "../API/GetQuery"
 
 export const allProcessFun = createAsyncThunk(
   "al-process-data-urls",
-  async (email) => {
+  async ({ email, date }) => {
     const allProcessRes = await getQuery(
-      `${process.env.REACT_APP_BASE_URL}getUserProcesses?userEmail=${email}`
+      `${process.env.REACT_APP_BASE_URL}getUserProcesses?userEmail=${email}&date=${date}`
+    )
+    return allProcessRes?.data
+  }
+)
+
+export const allUserProcessFun = createAsyncThunk(
+  "al-process-data-urls-user-process",
+  async ({ email, date }) => {
+    const allProcessRes = await getQuery(
+      `${process.env.REACT_APP_BASE_URL}getUserProcesses?userEmail=${email}&date=${date}`
     )
     return allProcessRes?.data
   }
@@ -17,6 +27,9 @@ export const AllProcessSlice = createSlice({
     allprocess: [],
     processLoading: false,
     processError: false,
+    allUserprocess: [],
+    UserprocessLoading: false,
+    UserprocessError: false,
   },
   extraReducers: (builder) => {
     builder.addCase(allProcessFun.pending, (state, action) => {
@@ -31,6 +44,20 @@ export const AllProcessSlice = createSlice({
     builder.addCase(allProcessFun.rejected, (state, action) => {
       state.processLoading = false
       state.processError = true
+    })
+
+    builder.addCase(allUserProcessFun.pending, (state, action) => {
+      state.UserprocessLoading = true
+      state.UserprocessError = false
+    })
+    builder.addCase(allUserProcessFun.fulfilled, (state, action) => {
+      state.allUserprocess = action.payload
+      state.UserprocessLoading = false
+      state.UserprocessError = false
+    })
+    builder.addCase(allUserProcessFun.rejected, (state, action) => {
+      state.UserprocessLoading = false
+      state.UserprocessError = true
     })
   },
 })

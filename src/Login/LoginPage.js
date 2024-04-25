@@ -24,15 +24,13 @@ const LoginPage = () => {
 
   const loginUser = async () => {
     const userApiRes = await dispatch(authDataFun(userLogin));
-    if(userApiRes.payload.status === 200){
+    if(userApiRes?.payload?.status === 200){
       navigate('/desktime')
     }
 
     // const userApiRes = await postQuery(`${process.env.REACT_APP_BASE_URL}login`, userLogin);
-    console.log("api res", userApiRes);
   }
 
-  console.log("user login", userLogin)
 
   return (
     <div className="login-page">
