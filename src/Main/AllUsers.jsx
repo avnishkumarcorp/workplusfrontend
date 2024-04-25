@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import TableComp from "../Components/TableComp"
 import CmModel from "../Model/CmModel"
 import CreateUserModel from "../Model/CreateUserModel"
+import { Link } from "react-router-dom"
 
 const AllUsers = () => {
   const dispatch = useDispatch()
@@ -22,8 +23,6 @@ const AllUsers = () => {
     (prev) => prev?.alluser
   )
 
- 
-
   useEffect(() => {
     dispatch(allUsersFun())
   }, [dispatch, deleteUser])
@@ -36,7 +35,14 @@ const AllUsers = () => {
 
   const columns = [
     { field: "id", headerName: "ID", width: 60 },
-    { field: "username", headerName: "User Name", width: 200 },
+    {
+      field: "username",
+      headerName: "User Name",
+      width: 200,
+      renderCell: (props) => (
+        <Link to={`${props?.row?.email}`}>{props.row.username}</Link>
+      ),
+    },
     { field: "email", headerName: "Email ID", width: 300 },
     {
       field: "createdAt",

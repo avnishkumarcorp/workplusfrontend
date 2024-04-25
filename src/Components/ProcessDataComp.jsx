@@ -4,20 +4,30 @@ import { processData } from "../data/fakeData"
 import ProcessCard from "./ProcessCard"
 import { allProcessFun } from "../Toolkit/AllProcessSlice"
 import { useDispatch, useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
 
-const ProcessDataComp = () => {
+const ProcessDataComp = ({ date, pro }) => {
   const dispatch = useDispatch()
+  const { useremail } = useParams()
 
   const { email: userEmail } = useSelector(
     (prev) => prev?.auth?.currentUser?.data?.user
   )
-  //   {date, activityType, durationMinutes, processName, processPath}
+
+  const processdata = {
+    date: date,
+    email: userEmail,
+  }
+
+  const processdatabyUser = {
+    date: date,
+    email: useremail,
+  }
 
   const alldata = useSelector((prev) => prev?.allprocess?.allprocess)
 
- 
   useEffect(() => {
-    dispatch(allProcessFun(userEmail))
+    dispatch(allProcessFun(pro ? processdatabyUser : processdata))
   }, [dispatch])
 
   return (

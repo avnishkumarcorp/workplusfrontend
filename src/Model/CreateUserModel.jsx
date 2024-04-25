@@ -14,9 +14,6 @@ const CreateUserModel = () => {
     (prev) => prev?.alluser
   )
 
- 
-
-  
   const [userData, setUserData] = useState({
     username: "",
     email: "",

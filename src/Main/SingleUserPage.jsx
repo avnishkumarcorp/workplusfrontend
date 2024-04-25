@@ -6,25 +6,29 @@ import BarChartData from "../Charts/BarChartData"
 import CmGap from "../Components/CmGap"
 import MdHeading from "../Components/MdHeading"
 import { useDispatch, useSelector } from "react-redux"
-import { mainDataFun } from "../Toolkit/MainDataSlice"
+import { mainDataAllFun, mainDataFun } from "../Toolkit/MainDataSlice"
 import getHoursMinutesDifference from "../data/dateFunctions"
 import ProcessDataComp from "../Components/ProcessDataComp"
 import CmBtn from "../Components/CmBtn"
+import { getCurrentUserFun } from "../Toolkit/AllUsersSlice"
+import { useParams } from "react-router-dom"
 
-const MainPage = () => {
+const SingleUserPage = () => {
   const [filterDate, setFilterDate] = useState(
     new Date().toISOString().split("T")[0]
   )
+  const [singlePro, setSinglePro] = useState(true);
   const [dateFilterDep, setDateFilterDep] = useState(false)
 
   const userEmail = useSelector(
     (prev) => prev?.auth?.currentUser?.data?.user?.email
   )
 
+  const { useremail } = useParams()
+
   const dispatch = useDispatch()
 
-  const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
-  console.warn(mainData)
+  const mainData = useSelector((prev) => prev?.mainData?.mainAllApiData)
 
   const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
 
@@ -39,21 +43,26 @@ const MainPage = () => {
     data2
   )
 
-  console.log("users", userHours, userMinutes);
-
   const userDate = {
     date: filterDate,
-    email: userEmail,
+    email: useremail,
   }
 
   useEffect(() => {
-    dispatch(mainDataFun(userDate))
+    dispatch(getCurrentUserFun(useremail))
+  }, [dispatch, useremail])
+
+  useEffect(() => {
+    dispatch(mainDataAllFun(userDate))
   }, [dispatch, dateFilterDep])
+
+  const mainData2 = useSelector((prev) => prev)
+  console.warn("i am state", mainData2)
 
   return (
     <CmGap>
       <div className="align-between">
-        <MdHeading data={`My Desktime`} />
+        <MdHeading data={`Single User`} />
         <div>
           <input
             type="date"
@@ -109,9 +118,9 @@ const MainPage = () => {
           <BarChartData />
         </div>
       </div>
-      <ProcessDataComp date={filterDate} />
+      <ProcessDataComp pro={singlePro} />
     </CmGap>
   )
 }
 
-export default MainPage
+export default SingleUserPage

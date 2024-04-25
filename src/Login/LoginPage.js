@@ -24,7 +24,7 @@ const LoginPage = () => {
 
   const loginUser = async () => {
     const userApiRes = await dispatch(authDataFun(userLogin));
-    if(userApiRes.payload.status === 200){
+    if(userApiRes?.payload?.status === 200){
       navigate('/desktime')
     }
 
