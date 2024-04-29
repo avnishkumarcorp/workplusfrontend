@@ -5,12 +5,14 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { authDataFun } from "../Toolkit/AuthSlice"
 import { useNavigate } from 'react-router-dom'
+import ErrorData from "../Components/ErrorData"
 
 const LoginPage = () => {
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
   })
+  const [loginError, setLoginError] = useState(false);
 
   const {currentUser, loading, error} = useSelector((prev) => prev?.auth)
   console.warn(currentUser);
@@ -27,6 +29,12 @@ const LoginPage = () => {
     if(userApiRes?.payload?.status === 200){
       navigate('/desktime')
     }
+    if(userApiRes.type === "auth-user/rejected"){
+      setLoginError(true)
+      return
+    }
+
+  
 
     // const userApiRes = await postQuery(`${process.env.REACT_APP_BASE_URL}login`, userLogin);
   }
@@ -54,6 +62,7 @@ const LoginPage = () => {
             name="password"
             onChange={getUserdata}
           />
+          {loginError ? <ErrorData value={`Please Enter Right Username or Email`} /> : ""}
         </div>
         <button onClick={() => loginUser()} className="login-btn">Login</button>
         <Link className="forget-pass">Forget Password ?</Link>

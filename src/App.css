@@ -125,3 +125,10 @@ body {
   padding: 20px;
 }
 
+
+.error-display {
+  color: #dc3545;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 13px;
+}

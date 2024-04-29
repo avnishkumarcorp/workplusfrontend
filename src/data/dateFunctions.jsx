@@ -13,3 +13,13 @@ export default function getHoursMinutesDifference(date1, date2) {
 
     return { hours, minutes };
 }
+
+
+export  function getProductivePercentage(hours, minute){
+    const total = parseInt(hours * 60 + minute);
+    const result = parseInt((total*10)/48);
+    if(result >= 100){
+        result = 100;
+    }
+    return result
+}   

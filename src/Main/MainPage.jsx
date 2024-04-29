@@ -7,6 +7,7 @@ import CmGap from "../Components/CmGap"
 import MdHeading from "../Components/MdHeading"
 import { useDispatch, useSelector } from "react-redux"
 import { mainDataFun } from "../Toolkit/MainDataSlice"
+import {getProductivePercentage} from "../data/dateFunctions"
 import getHoursMinutesDifference from "../data/dateFunctions"
 import ProcessDataComp from "../Components/ProcessDataComp"
 import CmBtn from "../Components/CmBtn"
@@ -40,6 +41,10 @@ const MainPage = () => {
   )
 
   console.log("users", userHours, userMinutes);
+
+  const productivePercentage = getProductivePercentage(userHours, userMinutes)
+
+  console.log("productive",   productivePercentage);
 
   const userDate = {
     date: filterDate,
@@ -93,22 +98,23 @@ const MainPage = () => {
         <CardDesign
           heading="Productive Time"
           data={fakeData}
-          contant="07h 01m"
+          contant={present ? "PRESENT" : "ABSENT"}
+          className={present ? "green-cl" : "red-cl"}
         />
         <CardDesign
           heading="Day Of the Week"
           data={fakeData}
           contant={dayOfWeek !== null ? dayOfWeek : "NULL"}
         />
-        <CardDesign heading="Productivity" data={fakeData} contant="75.30%" />
+        <CardDesign heading="Productivity" data={fakeData} contant={`${productivePercentage ? productivePercentage : "NULL" } %`} />
       </div>
 
-      <div className="productive-bar">
+      {/* <div className="productive-bar">
         <h3 className="small-heading my-3">Productivity Bar</h3>
         <div className="bar-graph">
           <BarChartData />
         </div>
-      </div>
+      </div> */}
       <ProcessDataComp date={filterDate} />
     </CmGap>
   )

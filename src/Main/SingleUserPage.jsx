@@ -8,6 +8,7 @@ import MdHeading from "../Components/MdHeading"
 import { useDispatch, useSelector } from "react-redux"
 import { mainDataAllFun, mainDataFun } from "../Toolkit/MainDataSlice"
 import getHoursMinutesDifference from "../data/dateFunctions"
+import {getProductivePercentage} from "../data/dateFunctions"
 import ProcessDataComp from "../Components/ProcessDataComp"
 import CmBtn from "../Components/CmBtn"
 import { getCurrentUserFun } from "../Toolkit/AllUsersSlice"
@@ -30,6 +31,8 @@ const SingleUserPage = () => {
 
   const mainData = useSelector((prev) => prev?.mainData?.mainAllApiData)
 
+  console.log("main Data", mainData);
+
   const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
 
   const filterCurrentData = () => {
@@ -42,6 +45,13 @@ const SingleUserPage = () => {
     data1,
     data2
   )
+
+  console.log("present time", userHours, userMinutes);
+
+  const productivePercentage = getProductivePercentage(userHours, userMinutes)
+
+  console.log("productive",   productivePercentage);
+
 
   const userDate = {
     date: filterDate,
@@ -102,22 +112,23 @@ const SingleUserPage = () => {
         <CardDesign
           heading="Productive Time"
           data={fakeData}
-          contant="07h 01m"
+          contant={present ? "PRESENT" : "ABSENT"}
+          className={present ? "green-cl" : "red-cl"}
         />
         <CardDesign
           heading="Day Of the Week"
           data={fakeData}
           contant={dayOfWeek !== null ? dayOfWeek : "NULL"}
         />
-        <CardDesign heading="Productivity" data={fakeData} contant="75.30%" />
+        <CardDesign heading="Productivity" data={fakeData} contant={`${productivePercentage ? productivePercentage : "NULL" } %`} />
       </div>
 
-      <div className="productive-bar">
+      {/* <div className="productive-bar">
         <h3 className="small-heading my-3">Productivity Bar</h3>
         <div className="bar-graph">
           <BarChartData />
         </div>
-      </div>
+      </div> */}
       <ProcessDataComp pro={singlePro} />
     </CmGap>
   )

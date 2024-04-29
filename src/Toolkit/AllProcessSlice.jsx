@@ -5,7 +5,7 @@ export const allProcessFun = createAsyncThunk(
   "al-process-data-urls",
   async ({ email, date }) => {
     const allProcessRes = await getQuery(
-      `${process.env.REACT_APP_BASE_URL}getUserProcesses?userEmail=${email}&date=${date}`
+      `${process.env.REACT_APP_BASE_URL}getUserDateProcess?userEmail=${email}&date=${date}`
     )
     return allProcessRes?.data
   }
@@ -15,7 +15,7 @@ export const allUserProcessFun = createAsyncThunk(
   "al-process-data-urls-user-process",
   async ({ email, date }) => {
     const allProcessRes = await getQuery(
-      `${process.env.REACT_APP_BASE_URL}getUserProcesses?userEmail=${email}&date=${date}`
+      `${process.env.REACT_APP_BASE_URL}getUserDateProcess?userEmail=${email}&date=${date}`
     )
     return allProcessRes?.data
   }

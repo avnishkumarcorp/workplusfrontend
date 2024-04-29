@@ -33,7 +33,7 @@ const ProcessDataComp = ({ date, pro }) => {
   return (
     <div className="process-box">
       {alldata?.map((data, index) => (
-        <ProcessCard data={data} index={index} />
+        <ProcessCard data={data} key={index} />
       ))}
     </div>
   )
