@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import "./ProcessDataComp.scss"
-import { processData } from "../data/fakeData"
 import ProcessCard from "./ProcessCard"
 import { allProcessFun } from "../Toolkit/AllProcessSlice"
 import { useDispatch, useSelector } from "react-redux"

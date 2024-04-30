@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react"
 import "./MainPage.scss"
 import { fakeData } from "../data/fakeData"
 import CardDesign from "../Components/CardDesign"
-import BarChartData from "../Charts/BarChartData"
 import CmGap from "../Components/CmGap"
 import MdHeading from "../Components/MdHeading"
 import { useDispatch, useSelector } from "react-redux"
-import { mainDataAllFun, mainDataFun } from "../Toolkit/MainDataSlice"
+import { mainDataAllFun } from "../Toolkit/MainDataSlice"
 import getHoursMinutesDifference from "../data/dateFunctions"
-import {getProductivePercentage} from "../data/dateFunctions"
+import { getProductivePercentage } from "../data/dateFunctions"
 import ProcessDataComp from "../Components/ProcessDataComp"
 import CmBtn from "../Components/CmBtn"
 import { getCurrentUserFun } from "../Toolkit/AllUsersSlice"
@@ -18,12 +17,16 @@ const SingleUserPage = () => {
   const [filterDate, setFilterDate] = useState(
     new Date().toISOString().split("T")[0]
   )
-  const [singlePro, setSinglePro] = useState(true);
+  const [singlePro, setSinglePro] = useState(true)
   const [dateFilterDep, setDateFilterDep] = useState(false)
 
   const userEmail = useSelector(
     (prev) => prev?.auth?.currentUser?.data?.user?.email
   )
+
+  const userData = useSelector((prev) => prev?.auth?.currentUser?.data?.user)
+
+  console.log("user data", userData)
 
   const { useremail } = useParams()
 
@@ -31,7 +34,9 @@ const SingleUserPage = () => {
 
   const mainData = useSelector((prev) => prev?.mainData?.mainAllApiData)
 
-  console.log("main Data", mainData);
+  const changeUser = useSelector((prev) => prev?.alluser?.singleUser?.data)
+
+  console.log("main Data", changeUser)
 
   const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
 
@@ -46,12 +51,11 @@ const SingleUserPage = () => {
     data2
   )
 
-  console.log("present time", userHours, userMinutes);
+  console.log("present time", userHours, userMinutes)
 
   const productivePercentage = getProductivePercentage(userHours, userMinutes)
 
-  console.log("productive",   productivePercentage);
-
+  console.log("productive", productivePercentage)
 
   const userDate = {
     date: filterDate,
@@ -82,6 +86,18 @@ const SingleUserPage = () => {
           <CmBtn data={`Filter`} onClick={filterCurrentData} />
         </div>
       </div>
+
+      <div className="user-info">
+        <p>
+          <b>User Name:</b> {changeUser?.username}
+        </p>
+        <p>
+          <b>User Email:</b> {changeUser?.email}
+        </p>
+        {/* <p>User Join Date: {new Date(userData?.createdAt).toLocaleDateString()}</p> */}
+        {/* <p>User Update Date: {new Date(userData?.updatedAt).toLocaleDateString()}</p> */}
+      </div>
+
       <div className="chart-box">
         <CardDesign
           heading="Arrival Time"
@@ -120,7 +136,11 @@ const SingleUserPage = () => {
           data={fakeData}
           contant={dayOfWeek !== null ? dayOfWeek : "NULL"}
         />
-        <CardDesign heading="Productivity" data={fakeData} contant={`${productivePercentage ? productivePercentage : "NULL" } %`} />
+        <CardDesign
+          heading="Productivity"
+          data={fakeData}
+          contant={`${productivePercentage ? productivePercentage : "NULL"} %`}
+        />
       </div>
 
       {/* <div className="productive-bar">

@@ -1,9 +1,16 @@
 import React from "react"
 import "./SideBar.scss"
-import { NavLink } from "react-router-dom"
 import SideBarBtn from "../Components/SideBarBtn"
+import { useSelector } from "react-redux"
 
 const SideBar = () => {
+
+  const currentUserRole = useSelector((prev) => prev?.auth)
+  console.log(currentUserRole);
+  // const currentRoles = useSelector((state) => state?.auth?.roles)
+  // const adminRole = currentRoles?.includes("ADMIN")
+  // const hrRole = currentRoles?.includes("HR")
+
   return (
     <div className="sidebar-data">
       <h3><i className="fa-regular mr-2 fa-clock"></i>DeskTime</h3>

@@ -17,7 +17,7 @@ export default function getHoursMinutesDifference(date1, date2) {
 
 export  function getProductivePercentage(hours, minute){
     const total = parseInt(hours * 60 + minute);
-    const result = parseInt((total*10)/48);
+    let result = parseInt((total*10)/48);
     if(result >= 100){
         result = 100;
     }

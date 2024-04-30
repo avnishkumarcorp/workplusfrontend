@@ -1,7 +1,6 @@
 import React from "react"
 import "./CardDesign.scss"
 import CardChart from "../Charts/CardChart"
-import { fakeData } from "../data/fakeData"
 
 const CardDesign = ({ heading, data, contant, className='' }) => {
   return (
