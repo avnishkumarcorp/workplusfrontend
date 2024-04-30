@@ -15,7 +15,6 @@ const LoginPage = () => {
   const [loginError, setLoginError] = useState(false);
 
   const {currentUser, loading, error} = useSelector((prev) => prev?.auth)
-  console.warn(currentUser);
   const navigate = useNavigate()
 
   const dispatch = useDispatch();

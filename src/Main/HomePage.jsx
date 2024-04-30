@@ -14,7 +14,7 @@ const HomePage = () => {
   ]
   return (
     <div>
-      <CommonDataTable rows={rows} columns={columns} />
+      <h1>Main Page</h1>
     </div>
   )
 };

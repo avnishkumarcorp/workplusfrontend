@@ -31,18 +31,17 @@ export const deleteUserFun = createAsyncThunk(
   }
 )
 
-
 // http://localhost:8888/userDetails?usernameMail=rahul.jain%40corpseed.com
 
-export const getCurrentUserFun = createAsyncThunk("geycurrentuser", async (email) => {
-  const getSingleUser = await getQuery(`${process.env.REACT_APP_BASE_URL}userDetails?usernameMail=${email}`);
-  console.log("user data", getSingleUser);
-  return getSingleUser
-})
-
-
-
-
+export const getCurrentUserFun = createAsyncThunk(
+  "geycurrentuser",
+  async (email) => {
+    const getSingleUser = await getQuery(
+      `${process.env.REACT_APP_BASE_URL}userDetails?usernameMail=${email}`
+    )
+    return getSingleUser
+  }
+)
 
 export const AllUsersSlice = createSlice({
   name: "alluser",
@@ -119,5 +118,3 @@ export const AllUsersSlice = createSlice({
 })
 
 export default AllUsersSlice.reducer
-
-

@@ -29,7 +29,7 @@ const AllUsers = () => {
 
   const deleteExistUserFun = async (id) => {
     if (window.confirm("Are You Want to Sure ?")) {
-      const delUser = await dispatch(deleteUserFun(userid))
+      const delUser = await dispatch(deleteUserFun({id: id}))
     }
   }
 

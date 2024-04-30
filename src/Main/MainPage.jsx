@@ -25,7 +25,6 @@ const MainPage = () => {
   const dispatch = useDispatch()
 
   const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
-  console.warn(mainData)
 
   const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
 
@@ -40,12 +39,8 @@ const MainPage = () => {
     data2
   )
 
-  console.log("users", userHours, userMinutes);
-
   const productivePercentage = getProductivePercentage(userHours, userMinutes)
-
-  console.log("productive",   productivePercentage);
-
+ 
   const userDate = {
     date: filterDate,
     email: userEmail,

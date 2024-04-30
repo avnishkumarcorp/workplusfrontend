@@ -8,6 +8,9 @@ import Signup from "./Login/Signup"
 import ScreenShotPage from "./Main/ScreenShotPage"
 import AllUsers from "./Main/AllUsers"
 import SingleUserPage from "./Main/SingleUserPage"
+import ReportsPage from "./Main/ReportsPage"
+import AllReportsUser from "./Main/AllReportsUser"
+import SingleUserMonthlyReport from "./Main/SingleUserMonthlyReport"
 
 function App() {
   return (
@@ -21,6 +24,12 @@ function App() {
           <Route path="/desktime" element={<MainOutlet />}>
             <Route path="" element={<MainPage />} />
             <Route path="screenshot" element={<ScreenShotPage />} />
+            <Route path="reports" element={<AllReportsUser />} >
+              <Route path="" element={<ReportsPage />} />
+              <Route path=":useremail" element={<SingleUserMonthlyReport />} />
+
+            </Route>
+            
             <Route path="users" element={<AllUsers />} />
             <Route path="users/:useremail" element={<SingleUserPage />}  />
           </Route>

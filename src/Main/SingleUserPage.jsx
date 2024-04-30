@@ -26,8 +26,6 @@ const SingleUserPage = () => {
 
   const userData = useSelector((prev) => prev?.auth?.currentUser?.data?.user)
 
-  console.log("user data", userData)
-
   const { useremail } = useParams()
 
   const dispatch = useDispatch()
@@ -35,8 +33,6 @@ const SingleUserPage = () => {
   const mainData = useSelector((prev) => prev?.mainData?.mainAllApiData)
 
   const changeUser = useSelector((prev) => prev?.alluser?.singleUser?.data)
-
-  console.log("main Data", changeUser)
 
   const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
 
@@ -51,11 +47,7 @@ const SingleUserPage = () => {
     data2
   )
 
-  console.log("present time", userHours, userMinutes)
-
   const productivePercentage = getProductivePercentage(userHours, userMinutes)
-
-  console.log("productive", productivePercentage)
 
   const userDate = {
     date: filterDate,
@@ -69,9 +61,6 @@ const SingleUserPage = () => {
   useEffect(() => {
     dispatch(mainDataAllFun(userDate))
   }, [dispatch, dateFilterDep])
-
-  const mainData2 = useSelector((prev) => prev)
-  console.warn("i am state", mainData2)
 
   return (
     <CmGap>

@@ -39,7 +39,7 @@ const ScreenShotPage = () => {
       </div>
       <div className="three-item">
         {imageData?.map((img, index) => (
-          <ScreenPhoto uni={index} image={img} />
+          <ScreenPhoto key={index} image={img} />
         ))}
       </div>
     </CmGap>

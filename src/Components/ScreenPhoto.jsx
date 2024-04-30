@@ -1,9 +1,9 @@
 import React from "react"
 import "./ScreenPhoto.scss"
 
-const ScreenPhoto = ({ uni, image }) => {
+const ScreenPhoto = ({ index, image }) => {
   return (
-    <div key={uni} className="image-box">
+    <div key={index} className="image-box">
       <img src={image} />
     </div>
   )
