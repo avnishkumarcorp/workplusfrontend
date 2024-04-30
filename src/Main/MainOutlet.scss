@@ -22,4 +22,17 @@
       overflow: auto;
     }
   }
+
+
+  
+  @media only screen and (max-width: 768px){
+    .main-page {
+     display: flex;
+     flex-direction: column;
+     .side-nav{
+      width: 100%;
+     }
+    }
+  }
+  
   

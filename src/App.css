@@ -11,7 +11,6 @@ font-family: 'Raleway', sans-serif; */
 
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;700&display=swap");
 
-
 body {
   font-family: "Raleway", sans-serif;
   overflow-x: hidden;
@@ -19,8 +18,18 @@ body {
 
 :root {
   --main-gradient: -webkit-linear-gradient(105deg, #4158d0 41%, #c850c0 46%);
-  --light-black: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,1) 100%), radial-gradient(at top center, rgba(255,255,255,0.90) 0%, rgba(0,0,0,0.40) 120%) #989898;
-  background-blend-mode: multiply,multiply;
+  --light-black: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
+  background-blend-mode: multiply, multiply;
   --main-hover-gradient: -webkit-linear-gradient(
     105deg,
     #c850c0 41%,
@@ -29,7 +38,6 @@ body {
   --white: #ffffff;
   --black: #000000;
 }
-
 
 .main-heading {
   text-align: center;
@@ -40,48 +48,44 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.align-between{
+.align-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.cm-btn-one{
+.cm-btn-one {
   background-color: #fff;
   color: #000;
   font-size: 14px;
   padding: 4px 8px;
   outline: none;
   border: 1px solid #fff;
-  box-shadow: 0px 5px 11px rgba(0,0,0,.2);
+  box-shadow: 0px 5px 11px rgba(0, 0, 0, 0.2);
 }
-.cm-btn-one:hover{
+.cm-btn-one:hover {
   background-color: #4158d0;
   color: #fff;
 }
 
-.cm-btn-one:focus{
+.cm-btn-one:focus {
   outline: none;
 }
 
-.red-cl{
+.red-cl {
   color: #ff6060;
 }
 
-.green-cl{
+.green-cl {
   color: #49cc90;
 }
 
-.three-item{
+.three-item {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   padding: 30px 0px;
 }
-
-
-
-
 
 .small-heading {
   font-size: 22px;
@@ -121,10 +125,9 @@ body {
   outline: none;
 }
 
-.common-gap{
+.common-gap {
   padding: 20px;
 }
-
 
 .error-display {
   color: #dc3545;
@@ -132,3 +135,17 @@ body {
   margin-bottom: 2px;
   font-size: 13px;
 }
+
+.user-info {
+  border: 1px solid #6b6969;
+  padding: 20px 10px;
+  margin: 10px 0px;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.user-info p {
+ margin-bottom: 5px;
+}
+

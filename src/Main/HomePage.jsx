@@ -1,4 +1,3 @@
-import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
 import CommonDataTable from "../data/CommonDataTable";
 
