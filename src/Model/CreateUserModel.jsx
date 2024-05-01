@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { createUserFun } from "../Toolkit/AllUsersSlice"
 
 const CreateUserModel = () => {
-  const { id: currId } = useSelector(
+  const currId = useSelector(
     (prev) => prev?.auth?.currentUser?.data?.user
   )
   const { createNewUser: newUser, newuserLoading, newUserError } = useSelector(
@@ -17,7 +17,7 @@ const CreateUserModel = () => {
   const [userData, setUserData] = useState({
     username: "",
     email: "",
-    createdBy: currId,
+    createdBy: currId?.id,
     roleNames: [],
     enable: true,
   })
