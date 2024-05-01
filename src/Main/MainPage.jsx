@@ -14,15 +14,26 @@ import CmBtn from "../Components/CmBtn"
 
 const MainPage = () => {
   const [filterDate, setFilterDate] = useState(
-    new Date().toISOString().split("T")[0]
-  )
+    new Date().toISOString().split("T")[0] )
   const [dateFilterDep, setDateFilterDep] = useState(false)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(mainDataFun(userDate))
+  }, [dispatch, dateFilterDep])
+
+
+  // const userEmail = useSelector(
+  //   (prev) => prev?.auth?.currentUser?.data?.user
+  // )
 
   const userEmail = useSelector(
-    (prev) => prev?.auth?.currentUser?.data?.user?.email
+    (prev) => prev?.auth?.currentUser?.data?.email
   )
 
-  const dispatch = useDispatch()
+  // console.log(userEmail)
+
+ 
 
   const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
 
@@ -46,9 +57,7 @@ const MainPage = () => {
     email: userEmail,
   }
 
-  useEffect(() => {
-    dispatch(mainDataFun(userDate))
-  }, [dispatch, dateFilterDep])
+
 
   return (
     <CmGap>
