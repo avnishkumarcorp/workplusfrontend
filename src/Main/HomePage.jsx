@@ -1,5 +1,8 @@
 import React from "react";
 import CommonDataTable from "../data/CommonDataTable";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import HeroPage from "../Components/HeroPage";
 
 const HomePage = () => {
   const rows = [
@@ -14,7 +17,9 @@ const HomePage = () => {
   ]
   return (
     <div>
-      <h1>Main Page</h1>
+      <Navbar /> 
+      <HeroPage />
+      <Footer />
     </div>
   )
 };

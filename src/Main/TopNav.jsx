@@ -9,6 +9,7 @@ const TopNav = () => {
   //   (prev) => prev?.auth?.currentUser?.data?.user
   // )
 
+
   return (
     <div className="top-navbar">
       <div className="user-profile">
