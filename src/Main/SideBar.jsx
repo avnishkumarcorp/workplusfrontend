@@ -4,10 +4,10 @@ import SideBarBtn from "../Components/SideBarBtn"
 import { useSelector } from "react-redux"
 
 const SideBar = () => {
-  const currentUserRole = useSelector(
-    (prev) => prev?.auth.currentUser?.data?.roles
-  )
-  const adminRole = currentUserRole.includes("ADMIN")
+  // const currentUserRole = useSelector(
+  //   (prev) => prev?.auth.currentUser?.data?.roles
+  // )
+  // const adminRole = currentUserRole.includes("ADMIN")
 
   // const currentRoles = useSelector((state) => state?.auth?.roles)
   // const adminRole = currentRoles?.includes("ADMIN")
@@ -24,7 +24,7 @@ const SideBar = () => {
           name="My Desktime"
           icon={<i className="fa-solid fa-desktop"></i>}
         />
-        {adminRole ? (
+        {/* {adminRole ? ( */}
           <>
             <SideBarBtn
               linkPath={`screenshot`}
@@ -42,9 +42,9 @@ const SideBar = () => {
               icon={<i className="fa-regular fa-file-word"></i>}
             />
           </>
-        ) : (
+        {/* ) : (
           ""
-        )}
+        )} */}
       </div>
     </div>
   )
