@@ -14,10 +14,10 @@ import SingleUserMonthlyReport from "./Main/SingleUserMonthlyReport"
 import { useDispatch, useSelector } from "react-redux"
 
 function App() {
-  const currentUserRole = useSelector(
-    (prev) => prev?.auth.currentUser?.data?.roles
-  )
-  const adminRole = currentUserRole.includes("ADMIN")
+  // const currentUserRole = useSelector(
+  //   (prev) => prev?.auth.currentUser?.data?.roles
+  // )
+  // const adminRole = currentUserRole.includes("ADMIN")
 
   // {authStatus ? <MainPage /> : <Navigate to="/erp/login" />}
 
@@ -32,12 +32,7 @@ function App() {
           <Route path="/desktime" element={<MainOutlet />}>
             <Route path="" element={<MainPage />} />
             <Route path="screenshot" element={<ScreenShotPage />} />
-            <Route
-              path="reports"
-              element={
-                adminRole ? <AllReportsUser /> : <Navigate to="/login" />
-              }
-            >
+            <Route path="reports" element={<AllReportsUser />}>
               <Route path="" element={<ReportsPage />} />
               <Route path=":useremail" element={<SingleUserMonthlyReport />} />
             </Route>
