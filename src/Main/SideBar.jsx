@@ -4,8 +4,11 @@ import SideBarBtn from "../Components/SideBarBtn"
 import { useSelector } from "react-redux"
 
 const SideBar = () => {
-  const currentUserRole = useSelector((prev) => prev?.auth.currentUser?.data?.user)
-  console.log("i am role", currentUserRole)
+  const currentUserRole = useSelector(
+    (prev) => prev?.auth.currentUser?.data?.roles
+  )
+  const adminRole = currentUserRole.includes("ADMIN")
+
   // const currentRoles = useSelector((state) => state?.auth?.roles)
   // const adminRole = currentRoles?.includes("ADMIN")
   // const hrRole = currentRoles?.includes("HR")
@@ -21,21 +24,27 @@ const SideBar = () => {
           name="My Desktime"
           icon={<i className="fa-solid fa-desktop"></i>}
         />
-        <SideBarBtn
-          linkPath={`screenshot`}
-          name="Screen Shot"
-          icon={<i className="fa-regular fa-image"></i>}
-        />
-        <SideBarBtn
-          linkPath={`users`}
-          name="Users"
-          icon={<i className="fa-solid fa-user"></i>}
-        />
-        <SideBarBtn
-          linkPath={`reports`}
-          name="Reports"
-          icon={<i className="fa-regular fa-file-word"></i>}
-        />
+        {adminRole ? (
+          <>
+            <SideBarBtn
+              linkPath={`screenshot`}
+              name="Screen Shot"
+              icon={<i className="fa-regular fa-image"></i>}
+            />
+            <SideBarBtn
+              linkPath={`users`}
+              name="Users"
+              icon={<i className="fa-solid fa-user"></i>}
+            />
+            <SideBarBtn
+              linkPath={`reports`}
+              name="Reports"
+              icon={<i className="fa-regular fa-file-word"></i>}
+            />
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   )

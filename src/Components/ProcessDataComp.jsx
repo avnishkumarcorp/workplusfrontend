@@ -9,8 +9,8 @@ const ProcessDataComp = ({ date, pro }) => {
   const dispatch = useDispatch()
   const { useremail } = useParams()
 
-  const { email: userEmail } = useSelector(
-    (prev) => prev?.auth?.currentUser?.data?.user
+  const userEmail = useSelector(
+    (prev) => prev?.auth?.currentUser?.data?.user?.email
   )
 
   const processdata = {
