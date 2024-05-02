@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { createUserFun } from "../Toolkit/AllUsersSlice"
 
 const CreateUserModel = () => {
-  const currId = useSelector(
-    (prev) => prev?.auth?.currentUser?.data?.user
-  )
-  const { createNewUser: newUser, newuserLoading, newUserError } = useSelector(
-    (prev) => prev?.alluser
-  )
+  const currId = useSelector((prev) => prev?.auth?.currentUser?.data)
+  const {
+    createNewUser: newUser,
+    newuserLoading,
+    newUserError,
+  } = useSelector((prev) => prev?.alluser)
 
   const [userData, setUserData] = useState({
     username: "",
@@ -36,7 +36,6 @@ const CreateUserModel = () => {
 
   const userRoles = useSelector((prev) => prev?.role?.allRoles)
 
-  
   const roles = [
     { id: 1, name: "ADMIN" },
     { id: 2, name: "USER" },
@@ -67,7 +66,10 @@ const CreateUserModel = () => {
           }))}
         />
         <div className="model-btn-box">
-          <CmBtn onClick={createNewUser} data={newuserLoading ? `Please wait` : "Create User"} />
+          <CmBtn
+            onClick={createNewUser}
+            data={newuserLoading ? `Please wait` : "Create User"}
+          />
         </div>
       </form>
     </>
