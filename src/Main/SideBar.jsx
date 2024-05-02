@@ -15,7 +15,6 @@ const SideBar = () => {
   const navigate = useNavigate()
 
   const logoutUser = () => {
-    console.log("user Logout Sucessfully")
     if (window.confirm("Are you sure for Logout?") == true) {
       const key = localStorage.getItem("persist:root")
       dispatch(logoutFun())
@@ -60,7 +59,7 @@ const SideBar = () => {
         ) : (
           ""
         )}
-        <CmBtn className="side-btn" onClick={logoutUser} data={`Logout`} />
+        <CmBtn className="side-btn hover-w" onClick={logoutUser} data={`Logout`} />
       </div>
     </div>
   )

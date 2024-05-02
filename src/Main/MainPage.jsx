@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import "./MainPage.scss"
 import { fakeData } from "../data/fakeData"
 import CardDesign from "../Components/CardDesign"
-import BarChartData from "../Charts/BarChartData"
 import CmGap from "../Components/CmGap"
 import MdHeading from "../Components/MdHeading"
 import { useDispatch, useSelector } from "react-redux"
@@ -30,11 +29,7 @@ const MainPage = () => {
   const userEmail = useSelector(
     (prev) => prev?.auth?.currentUser?.data?.email
   )
-
-  // console.log(userEmail)
-
- 
-
+  
   const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
 
   const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData

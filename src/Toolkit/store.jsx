@@ -1,4 +1,3 @@
-// import { configureStore } from "@reduxjs/toolkit"
 import { combineReducers } from "redux"
 import persistReducer from "redux-persist/es/persistReducer"
 import storage from "redux-persist/lib/storage"
@@ -9,6 +8,7 @@ import AllUsersSlice from "./AllUsersSlice"
 import MainDataSlice from "./MainDataSlice"
 import RoleSlice from "./RoleSlice"
 import AllProcessSlice from "./AllProcessSlice"
+import AllReportsSlice from "./AllReportsSlice"
 
 const reducers = combineReducers({
   auth: AuthSlice,
@@ -16,6 +16,7 @@ const reducers = combineReducers({
   mainData: MainDataSlice,
   role: RoleSlice,
   allprocess: AllProcessSlice,
+  allreports: AllReportsSlice,
 })
 
 const persistConfig = {
