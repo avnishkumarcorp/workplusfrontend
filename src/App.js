@@ -18,7 +18,7 @@ function App() {
   //   (prev) => prev?.auth.currentUser?.data?.roles
   // )
   // const adminRole = currentUserRole.includes("ADMIN")
-
+  const authStatus = useSelector((state) => state.auth.isAuth)
   // {authStatus ? <MainPage /> : <Navigate to="/erp/login" />}
 
   return (
@@ -29,9 +29,17 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
 
-          <Route path="/desktime" element={<MainOutlet />}>
+          <Route
+            path="/desktime"
+            element={authStatus ? <MainOutlet /> : <Navigate to="/login" />}
+          >
             <Route path="" element={<MainPage />} />
-            <Route path="screenshot" element={<ScreenShotPage />} />
+            <Route
+              path="screenshot"
+              element={
+                authStatus ? <ScreenShotPage /> : <Navigate to="/login" />
+              }
+            />
             <Route path="reports" element={<AllReportsUser />}>
               <Route path="" element={<ReportsPage />} />
               <Route path=":useremail" element={<SingleUserMonthlyReport />} />
@@ -40,6 +48,7 @@ function App() {
             <Route path="users" element={<AllUsers />} />
             <Route path="users/:useremail" element={<SingleUserPage />} />
           </Route>
+          <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </BrowserRouter>
     </div>
