@@ -3,9 +3,9 @@ import { getQuery } from "../API/GetQuery"
 
 export const allReportsFun = createAsyncThunk(
   "al-reports-data-urls",
-  async ({ email, date }) => {
+  async ({ email, year, month }) => {
     const allReportsRes = await getQuery(
-      `${process.env.REACT_APP_BASE_URL}report?email=${email}&date=${date}`
+      `${process.env.REACT_APP_BASE_URL}report?email=${email}&year=${year}&month=${month}`
     )
     return allReportsRes?.data
   }

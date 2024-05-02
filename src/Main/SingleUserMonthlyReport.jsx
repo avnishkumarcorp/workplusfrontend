@@ -4,17 +4,30 @@ import TableComp from "../Components/TableComp"
 import { allReportsFun } from "../Toolkit/AllReportsSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+import CmBtn from "../Components/CmBtn"
 
 const SingleUserMonthlyReport = () => {
-  const [filterDate, setFilterDate] = useState(
-    new Date().toISOString().split("T")[0]
-  )
+  const [filterDate, setFilterDate] = useState("")
+  const [year, setYear] = useState("")
+  const [month, setMonth] = useState("")
+
+  let data
+
+  useEffect(() => {
+    data = filterDate?.split("-")
+    console.log(data)
+    setYear(data[0])
+    setMonth(data[1])
+  }, [filterDate])
+
+  console.log("year Months", filterDate)
   const [dateFilterDep, setDateFilterDep] = useState(false)
 
   const { useremail } = useParams()
 
   const userDate = {
-    date: filterDate,
+    year: filterDate.length === 0 ? new Date().getFullYear() : year,
+    month: filterDate.length === 0 ? new Date().getMonth() + 1 : month,
     email: useremail,
   }
 
@@ -61,17 +74,18 @@ const SingleUserMonthlyReport = () => {
     <>
       <div className="align-between">
         <MdHeading data={`User Monthly Report`} />
-        {/* <div>
+        <div>
           <input
-            type="date"
+            type="month"
+            id="start"
+            name="start"
             className="mr-1 mb-0"
+            min="2024-03"
+            value={filterDate || `2024-01`}
             onChange={(e) => setFilterDate(e.target.value)}
           />
-          <CmBtn
-            data={`Filter`}
-            onClick={filterCurrentData}
-          />
-        </div> */}
+          <CmBtn data={`Filter`} onClick={filterCurrentData} />
+        </div>
       </div>
 
       <TableComp
