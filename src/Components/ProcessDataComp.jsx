@@ -11,8 +11,6 @@ const ProcessDataComp = ({ date, pro }) => {
 
   const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
 
-  console.log(userEmail)
-
   const processdata = {
     date: date,
     email: userEmail,

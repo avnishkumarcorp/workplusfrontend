@@ -11,9 +11,6 @@ import { Link } from "react-router-dom"
 const AllUsers = () => {
   const dispatch = useDispatch()
 
-  // const { id: userid } = useSelector(
-  //   (prev) => prev?.auth?.currentUser?.data?.user
-  // )
 
   const { allUsers, userLoading, userError } = useSelector(
     (prev) => prev?.alluser

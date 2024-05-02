@@ -149,3 +149,20 @@ body {
  margin-bottom: 5px;
 }
 
+.hover-w:hover{
+  background-color: #fff;
+  color: #000;
+
+}
+
+.linkactive{
+  background-color: #000;
+  color: #fff;
+}
+
+.css-levciy-MuiTablePagination-displayedRows{
+  margin-bottom: 0px !important;
+}
+.css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel{
+  margin-bottom: 0px !important;
+}
