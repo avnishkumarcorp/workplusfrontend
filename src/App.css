@@ -79,6 +79,9 @@ body {
 .green-cl {
   color: #49cc90;
 }
+.w-one-fifty{
+  width: 150px !important;
+}
 
 .three-item {
   display: grid;

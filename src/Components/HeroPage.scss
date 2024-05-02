@@ -1,0 +1,25 @@
+.hero-section {
+  width: 100%;
+  height: calc(100vh - 120px);
+  background-image: url("https://images.pexels.com/photos/5624978/pexels-photo-5624978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .hero-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    .hero-heading {
+      font-size: 35px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .hero-para {
+      font-size: 18px;
+      color: #fff;
+    }
+  }
+}
