@@ -19,10 +19,10 @@ const ProcessCard = ({ data, index }) => {
           <b>Process Date : </b>
           <span>{date}</span>
         </p>
-        <p className="process-name">
+        {/* <p className="process-name">
           <b>Duration Minutes : </b>
           <span>{durationMinutes}</span>
-        </p>
+        </p> */}
         <p className="process-name">
           <b>Activity Type : </b>
           <span>{activityType}</span>
