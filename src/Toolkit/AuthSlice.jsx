@@ -15,6 +15,13 @@ export const AuthSlice = createSlice({
     currentUser: {},
     loading: false,
     error: false,
+    isAuth: false,
+  },
+  reducers: {
+    logoutFun : (state, action) => {
+      state.isAuth = false
+      state.currentUser = null
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(authDataFun.pending, (state, action) => {
@@ -24,6 +31,7 @@ export const AuthSlice = createSlice({
     builder.addCase(authDataFun.fulfilled, (state, action) => {
       state.currentUser = action.payload
       state.loading = false
+      state.isAuth = true
       state.error = false
     })
     builder.addCase(authDataFun.rejected, (state, action) => {
@@ -33,4 +41,6 @@ export const AuthSlice = createSlice({
   },
 })
 
+
+export const { logoutFun } = AuthSlice.actions
 export default AuthSlice.reducer
