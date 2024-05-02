@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #000;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  .desktime-logo {
+    font-size: 22px;
+    color: #fff;
+  }
+}
