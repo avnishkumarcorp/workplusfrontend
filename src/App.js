@@ -32,6 +32,12 @@ function App() {
             <Route
               path="screenshot"
               element={
+                authStatus ? <AllUsers /> : <Navigate to="/login" />
+              }
+            />
+             <Route
+              path="screenshot/:useremail"
+              element={
                 authStatus ? <ScreenShotPage /> : <Navigate to="/login" />
               }
             />

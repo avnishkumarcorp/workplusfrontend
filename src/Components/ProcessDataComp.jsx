@@ -4,6 +4,8 @@ import ProcessCard from "./ProcessCard"
 import { allProcessFun } from "../Toolkit/AllProcessSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+import TableScalaton from "./TableScalaton"
+import SomethingWrong from "./SomethingWrong"
 
 const ProcessDataComp = ({ date, pro }) => {
   const dispatch = useDispatch()
@@ -21,7 +23,9 @@ const ProcessDataComp = ({ date, pro }) => {
     email: useremail,
   }
 
-  const alldata = useSelector((prev) => prev?.allprocess?.allprocess)
+  const { allprocess, processLoading, processError } = useSelector(
+    (prev) => prev?.allprocess
+  )
 
   useEffect(() => {
     dispatch(allProcessFun(pro ? processdatabyUser : processdata))
@@ -29,9 +33,14 @@ const ProcessDataComp = ({ date, pro }) => {
 
   return (
     <div className="process-box">
-      {alldata?.map((data, index) => (
-        <ProcessCard data={data} key={index} />
-      ))}
+      {processLoading && <TableScalaton />}
+      {processError && <SomethingWrong />}
+      {allprocess &&
+        !processLoading &&
+        !processError &&
+        allprocess?.map((data, index) => (
+          <ProcessCard data={data} key={index} />
+        ))}
     </div>
   )
 }
