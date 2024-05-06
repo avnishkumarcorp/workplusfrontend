@@ -25,7 +25,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
 
           <Route
-            path="/desktime"
+            path="/workplus"
             element={authStatus ? <MainOutlet /> : <Navigate to="/login" />}
           >
             <Route path="" element={<MainPage />} />

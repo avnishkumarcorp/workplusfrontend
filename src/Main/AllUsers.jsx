@@ -73,7 +73,7 @@ const AllUsers = () => {
   return (
     <CmGap>
       <div className="align-between">
-        <MdHeading data={pathname === '/desktime/users' ? `All Users Report` : "All Users Screenshot"} />
+        <MdHeading data={pathname === '/workplus/users' ? `All Users Report` : "All Users Screenshot"} />
         <CmModel
           data={`Create New user`}
           modelhead={"create User"}

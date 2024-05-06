@@ -49,7 +49,7 @@ const MainPage = () => {
   return (
     <CmGap>
       <div className="align-between">
-        <MdHeading data={`My Desktime`} />
+        <MdHeading data={`My Workplus Time`} />
         <div>
           <input
             type="date"

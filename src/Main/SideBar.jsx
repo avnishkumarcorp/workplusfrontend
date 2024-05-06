@@ -26,12 +26,12 @@ const SideBar = () => {
   return (
     <div className="sidebar-data">
       <h3>
-        <i className="fa-regular mr-2 fa-clock"></i>DeskTime
+        <i className="fa-regular mr-2 fa-clock"></i>Workplus
       </h3>
       <div className="side-buttons mt-4">
         <SideBarBtn
           linkPath={``}
-          name="My Desktime"
+          name="My Workplus Time"
           icon={<i className="fa-solid fa-desktop"></i>}
         />
         {adminRole ? (
