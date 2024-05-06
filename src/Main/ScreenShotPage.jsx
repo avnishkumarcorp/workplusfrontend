@@ -13,14 +13,19 @@ const ScreenShotPage = () => {
   const [filterDate, setFilterDate] = useState(
     new Date().toISOString().split("T")[0]
   )
+  const [dateFilterDep, setDateFilterDep] = useState(false)
   const { useremail } = useParams()
 
   console.log(filterDate)
   const dispatch = useDispatch()
 
+  const filterCurrentData = () => {
+    setDateFilterDep((prev) => !prev)
+  }
+
   useEffect(() => {
     dispatch(allScreenShotFun(userDate))
-  }, [dispatch, useremail])
+  }, [dispatch, useremail, dateFilterDep])
 
   const { allScreenshot, screenshotLoading, screenshotError } = useSelector(
     (prev) => prev?.screenshot
@@ -36,7 +41,14 @@ const ScreenShotPage = () => {
     <CmGap>
       <div className="align-between">
         <MdHeading data={`All Screen Shot`} />
-        <CmBtn data={`Add Filter`} />
+        <div>
+          <input
+            type="date"
+            className="mr-1 mb-0"
+            onChange={(e) => setFilterDate(e.target.value)}
+          />
+        <CmBtn data={`Add Filter`} onClick={filterCurrentData} />
+        </div>
       </div>
       {screenshotLoading && <TableScalaton />}
       {screenshotError && <SomethingWrong />}
