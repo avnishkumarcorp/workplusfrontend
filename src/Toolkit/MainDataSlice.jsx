@@ -1,22 +1,25 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { getQuery } from "../API/GetQuery"
 
-export const mainDataFun = createAsyncThunk("getAllMainData", async ({email, date}) => {
-  const mainData = await getQuery(
-    `${process.env.REACT_APP_BASE_URL}dailyActivity?email=${email}&date=${date}`
-  )
-  return mainData?.data
-})
+export const mainDataFun = createAsyncThunk(
+  "getAllMainData",
+  async ({ email, date }) => {
+    const mainData = await getQuery(
+      `${process.env.REACT_APP_BASE_URL}dailyActivity?email=${email}&date=${date}`
+    )
+    return mainData?.data
+  }
+)
 
-export const mainDataAllFun = createAsyncThunk("getAllMainDataAllFun", async ({email, date}) => {
-  const mainData = await getQuery(
-    `${process.env.REACT_APP_BASE_URL}dailyActivity?email=${email}&date=${date}`
-  )
-  return mainData?.data
-})
-
-
-
+export const mainDataAllFun = createAsyncThunk(
+  "getAllMainDataAllFun",
+  async ({ email, date }) => {
+    const mainData = await getQuery(
+      `${process.env.REACT_APP_BASE_URL}dailyActivity?email=${email}&date=${date}`
+    )
+    return mainData?.data
+  }
+)
 
 export const mainDataSlice = createSlice({
   name: "maindata",

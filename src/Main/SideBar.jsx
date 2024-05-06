@@ -23,10 +23,6 @@ const SideBar = () => {
     }
   }
 
-  // const currentRoles = useSelector((state) => state?.auth?.roles)
-  // const adminRole = currentRoles?.includes("ADMIN")
-  // const hrRole = currentRoles?.includes("HR")
-
   return (
     <div className="sidebar-data">
       <h3>
@@ -59,7 +55,11 @@ const SideBar = () => {
         ) : (
           ""
         )}
-        <CmBtn className="side-btn hover-w" onClick={logoutUser} data={`Logout`} />
+        <CmBtn
+          className="side-btn hover-w"
+          onClick={logoutUser}
+          data={`Logout`}
+        />
       </div>
     </div>
   )

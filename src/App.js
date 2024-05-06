@@ -11,15 +11,10 @@ import SingleUserPage from "./Main/SingleUserPage"
 import ReportsPage from "./Main/ReportsPage"
 import AllReportsUser from "./Main/AllReportsUser"
 import SingleUserMonthlyReport from "./Main/SingleUserMonthlyReport"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 
 function App() {
-  // const currentUserRole = useSelector(
-  //   (prev) => prev?.auth.currentUser?.data?.roles
-  // )
-  // const adminRole = currentUserRole.includes("ADMIN")
   const authStatus = useSelector((state) => state.auth.isAuth)
-  // {authStatus ? <MainPage /> : <Navigate to="/erp/login" />}
 
   return (
     <div className="App">
@@ -36,6 +31,12 @@ function App() {
             <Route path="" element={<MainPage />} />
             <Route
               path="screenshot"
+              element={
+                authStatus ? <AllUsers /> : <Navigate to="/login" />
+              }
+            />
+             <Route
+              path="screenshot/:useremail"
               element={
                 authStatus ? <ScreenShotPage /> : <Navigate to="/login" />
               }

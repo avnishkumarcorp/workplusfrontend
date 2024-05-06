@@ -2,7 +2,7 @@ import React from "react"
 import "./CardDesign.scss"
 import CardChart from "../Charts/CardChart"
 
-const CardDesign = ({ heading, data, contant, className='' }) => {
+const CardDesign = ({ heading, data, contant, className = "" }) => {
   return (
     <div className="card-design">
       <h2 className="card-heading">{heading}</h2>

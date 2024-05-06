@@ -83,8 +83,6 @@ const SingleUserPage = () => {
         <p>
           <b>User Email:</b> {changeUser?.email}
         </p>
-        {/* <p>User Join Date: {new Date(userData?.createdAt).toLocaleDateString()}</p> */}
-        {/* <p>User Update Date: {new Date(userData?.updatedAt).toLocaleDateString()}</p> */}
       </div>
 
       <div className="chart-box">
@@ -131,13 +129,6 @@ const SingleUserPage = () => {
           contant={`${productivePercentage ? productivePercentage : "NULL"} %`}
         />
       </div>
-
-      {/* <div className="productive-bar">
-        <h3 className="small-heading my-3">Productivity Bar</h3>
-        <div className="bar-graph">
-          <BarChartData />
-        </div>
-      </div> */}
       <ProcessDataComp pro={singlePro} />
     </CmGap>
   )

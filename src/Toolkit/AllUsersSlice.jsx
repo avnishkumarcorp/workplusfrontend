@@ -31,8 +31,6 @@ export const deleteUserFun = createAsyncThunk(
   }
 )
 
-// http://localhost:8888/userDetails?usernameMail=rahul.jain%40corpseed.com
-
 export const getCurrentUserFun = createAsyncThunk(
   "geycurrentuser",
   async (email) => {

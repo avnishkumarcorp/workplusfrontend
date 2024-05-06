@@ -9,6 +9,7 @@ import MainDataSlice from "./MainDataSlice"
 import RoleSlice from "./RoleSlice"
 import AllProcessSlice from "./AllProcessSlice"
 import AllReportsSlice from "./AllReportsSlice"
+import ScreenShotSlice from "./ScreenShotSlice"
 
 const reducers = combineReducers({
   auth: AuthSlice,
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   role: RoleSlice,
   allprocess: AllProcessSlice,
   allreports: AllReportsSlice,
+  screenshot: ScreenShotSlice,
 })
 
 const persistConfig = {

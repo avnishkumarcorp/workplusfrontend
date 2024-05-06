@@ -6,14 +6,15 @@ import CmGap from "../Components/CmGap"
 import MdHeading from "../Components/MdHeading"
 import { useDispatch, useSelector } from "react-redux"
 import { mainDataFun } from "../Toolkit/MainDataSlice"
-import {getProductivePercentage} from "../data/dateFunctions"
+import { getProductivePercentage } from "../data/dateFunctions"
 import getHoursMinutesDifference from "../data/dateFunctions"
 import ProcessDataComp from "../Components/ProcessDataComp"
 import CmBtn from "../Components/CmBtn"
 
 const MainPage = () => {
   const [filterDate, setFilterDate] = useState(
-    new Date().toISOString().split("T")[0] )
+    new Date().toISOString().split("T")[0]
+  )
   const [dateFilterDep, setDateFilterDep] = useState(false)
   const dispatch = useDispatch()
 
@@ -21,15 +22,8 @@ const MainPage = () => {
     dispatch(mainDataFun(userDate))
   }, [dispatch, dateFilterDep])
 
+  const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
 
-  // const userEmail = useSelector(
-  //   (prev) => prev?.auth?.currentUser?.data?.user
-  // )
-
-  const userEmail = useSelector(
-    (prev) => prev?.auth?.currentUser?.data?.email
-  )
-  
   const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
 
   const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
@@ -46,13 +40,11 @@ const MainPage = () => {
   )
 
   const productivePercentage = getProductivePercentage(userHours, userMinutes)
- 
+
   const userDate = {
     date: filterDate,
     email: userEmail,
   }
-
-
 
   return (
     <CmGap>
@@ -105,15 +97,13 @@ const MainPage = () => {
           data={fakeData}
           contant={dayOfWeek !== null ? dayOfWeek : "NULL"}
         />
-        <CardDesign heading="Productivity" data={fakeData} contant={`${productivePercentage ? productivePercentage : "NULL" } %`} />
+        <CardDesign
+          heading="Productivity"
+          data={fakeData}
+          contant={`${productivePercentage ? productivePercentage : "NULL"} %`}
+        />
       </div>
 
-      {/* <div className="productive-bar">
-        <h3 className="small-heading my-3">Productivity Bar</h3>
-        <div className="bar-graph">
-          <BarChartData />
-        </div>
-      </div> */}
       <ProcessDataComp date={filterDate} />
     </CmGap>
   )

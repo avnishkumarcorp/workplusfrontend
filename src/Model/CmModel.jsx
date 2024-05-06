@@ -11,10 +11,6 @@ const CmModel = ({ children, data, modelhead, modelId }) => {
     newUserError,
   } = useSelector((prev) => prev?.alluser)
 
-  const roles = [
-    { id: 1, name: "ADMIN" },
-    { id: 2, name: "USER" },
-  ]
   return (
     <>
       <button

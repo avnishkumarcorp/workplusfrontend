@@ -6,15 +6,17 @@ import { useDispatch, useSelector } from "react-redux"
 import TableComp from "../Components/TableComp"
 import CmModel from "../Model/CmModel"
 import CreateUserModel from "../Model/CreateUserModel"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const AllUsers = () => {
   const dispatch = useDispatch()
 
-
   const { allUsers, userLoading, userError } = useSelector(
     (prev) => prev?.alluser
   )
+
+  const { pathname } = useLocation();
+  console.log("i a location", pathname);
 
   const { deleteUser, deluserLoading, delUserError } = useSelector(
     (prev) => prev?.alluser
@@ -26,7 +28,7 @@ const AllUsers = () => {
 
   const deleteExistUserFun = async (id) => {
     if (window.confirm("Are You Want to Sure ?")) {
-      const delUser = await dispatch(deleteUserFun({id: id}))
+      const delUser = await dispatch(deleteUserFun({ id: id }))
     }
   }
 
@@ -71,7 +73,7 @@ const AllUsers = () => {
   return (
     <CmGap>
       <div className="align-between">
-        <MdHeading data={`All Users`} />
+        <MdHeading data={pathname === '/desktime/users' ? `All Users Report` : "All Users Screenshot"} />
         <CmModel
           data={`Create New user`}
           modelhead={"create User"}

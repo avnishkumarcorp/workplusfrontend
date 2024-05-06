@@ -1,9 +1,9 @@
-.process-box{
-    border: 1px solid #353535;
-    display: grid;
-    padding: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    max-height: 500px;
-    overflow: auto;
+.process-box {
+  border: 1px solid #353535;
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-height: 500px;
+  overflow: auto;
 }
