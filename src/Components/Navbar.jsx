@@ -1,6 +1,5 @@
 import React from "react"
 import "./Navbar.scss"
-import CmBtn from "./CmBtn"
 import SideBarBtn from "./SideBarBtn"
 const Navbar = () => {
   return (

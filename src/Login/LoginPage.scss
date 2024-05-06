@@ -12,9 +12,6 @@
   background-blend-mode: lighten;
   position: relative;
 
- 
-
-
   .ractangle {
     position: absolute;
     height: 30px;
@@ -51,25 +48,24 @@
     text-align: center;
     border-radius: 20px;
     z-index: 99;
-    .forget-pass{
+    .forget-pass {
       font-size: 15px;
       font-weight: 700;
       color: #c850c0;
       display: block;
       padding-top: 25px;
-      &:hover{
+      &:hover {
         text-decoration: none;
       }
-      
     }
-    .account-not{
+    .account-not {
       padding: 15px 0px;
       font-size: 14px;
       font-weight: 700;
-      .going-link{
+      .going-link {
         color: #4158d0;
         margin-left: 2px;
-        &:hover{
+        &:hover {
           text-decoration: none;
         }
       }

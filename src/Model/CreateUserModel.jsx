@@ -36,10 +36,6 @@ const CreateUserModel = () => {
 
   const userRoles = useSelector((prev) => prev?.role?.allRoles)
 
-  const roles = [
-    { id: 1, name: "ADMIN" },
-    { id: 2, name: "USER" },
-  ]
   return (
     <>
       <form>

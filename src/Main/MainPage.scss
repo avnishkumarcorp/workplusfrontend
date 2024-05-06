@@ -6,23 +6,22 @@
 }
 
 .productive-bar {
-    padding: 20px 0px;
-    box-shadow: 1px solid rgba(0,0,0,.2);
-    border: 1px solid #fff;
-    .bar-graph {
+  padding: 20px 0px;
+  box-shadow: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid #fff;
+  .bar-graph {
     height: 400px;
     width: 100%;
   }
 }
 
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 992px) {
   .chart-box {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
   .chart-box {
     grid-template-columns: 1fr;
   }

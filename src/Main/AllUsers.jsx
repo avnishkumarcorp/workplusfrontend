@@ -11,7 +11,6 @@ import { Link } from "react-router-dom"
 const AllUsers = () => {
   const dispatch = useDispatch()
 
-
   const { allUsers, userLoading, userError } = useSelector(
     (prev) => prev?.alluser
   )
@@ -26,7 +25,7 @@ const AllUsers = () => {
 
   const deleteExistUserFun = async (id) => {
     if (window.confirm("Are You Want to Sure ?")) {
-      const delUser = await dispatch(deleteUserFun({id: id}))
+      const delUser = await dispatch(deleteUserFun({ id: id }))
     }
   }
 

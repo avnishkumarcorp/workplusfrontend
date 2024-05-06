@@ -1,9 +1,9 @@
-.image-box{
-    height: 200px;
+.image-box {
+  height: 200px;
+  width: 100%;
+  img {
+    height: 100%;
     width: 100%;
-    img{
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
+    object-fit: cover;
+  }
 }

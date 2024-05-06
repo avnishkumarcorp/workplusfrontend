@@ -47,7 +47,7 @@ const ReportsPage = () => {
   return (
     <>
       <MdHeading data={`All Users for Reports`} />
-      
+
       <TableComp
         loading={userLoading}
         error={userError}

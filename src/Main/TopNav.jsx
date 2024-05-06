@@ -5,11 +5,6 @@ import { useSelector } from "react-redux"
 const TopNav = () => {
   const user = useSelector((prev) => prev?.auth?.currentUser?.data)
 
-  // const { username, email } = useSelector(
-  //   (prev) => prev?.auth?.currentUser?.data?.user
-  // )
-
-
   return (
     <div className="top-navbar">
       <div className="user-profile">

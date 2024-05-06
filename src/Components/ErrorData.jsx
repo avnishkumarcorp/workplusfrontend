@@ -1,9 +1,7 @@
-import React from "react";
+import React from "react"
 
-const ErrorData = ({value}) => {
-  return (
-    <p className="error-display">{value}</p>
-  )
-};
+const ErrorData = ({ value }) => {
+  return <p className="error-display">{value}</p>
+}
 
-export default ErrorData;
+export default ErrorData
