@@ -75,9 +75,9 @@ const MainPage = () => {
           data={fakeData}
           contant={
             loginTime !== null
-              ? new Date(loginTime).getHours() +
+              ? new Date(loginTime).getHours().toString().padStart(2, '0') +
                 ":" +
-                new Date(loginTime).getMinutes() +
+                new Date(loginTime).getMinutes().toString().padStart(2, '0') +
                 " " +
                 loginTimeConvention
               : "NULL"
@@ -88,9 +88,9 @@ const MainPage = () => {
           data={fakeData}
           contant={
             logoutTime !== null
-              ? new Date(logoutTime).getHours() +
+              ? new Date(logoutTime).getHours().toString().padStart(2, '0') +
                 ":" +
-                new Date(logoutTime).getMinutes() +
+                new Date(logoutTime).getMinutes().toString().padStart(2, '0') +
                 " " + logoutTimeConvention
               : "NULL"
           }
