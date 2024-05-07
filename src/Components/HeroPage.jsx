@@ -17,7 +17,7 @@ const HeroPage = () => {
             className="w-one-fifty"
             linkPath={`/login`}
             name="Login"
-            icon={<i class="fa-solid fa-right-to-bracket"></i>}
+            icon={<i className="fa-solid fa-right-to-bracket"></i>}
           />
         </div>
       </div>

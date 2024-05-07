@@ -7,6 +7,7 @@ import TableComp from "../Components/TableComp"
 import CmModel from "../Model/CmModel"
 import CreateUserModel from "../Model/CreateUserModel"
 import { Link, useLocation } from "react-router-dom"
+import NoRecordAdded from "../Components/NoRecordAdded"
 
 const AllUsers = () => {
   const dispatch = useDispatch()

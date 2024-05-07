@@ -7,7 +7,7 @@ import { allScreenShotFun } from "../Toolkit/ScreenShotSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import TableScalaton from "../Components/TableScalaton"
-import SomethingWrong from "../Components/SomethingWrong"
+import NoRecordAdded from "../Components/NoRecordAdded"
 
 const ScreenShotPage = () => {
   const [filterDate, setFilterDate] = useState(
@@ -51,7 +51,7 @@ const ScreenShotPage = () => {
         </div>
       </div>
       {screenshotLoading && <TableScalaton />}
-      {screenshotError && <SomethingWrong />}
+      {screenshotError && <NoRecordAdded />}
       {allScreenshot && !screenshotLoading && !screenshotError && (
         <div className="three-item">
           {allScreenshot?.map((img, index) => (

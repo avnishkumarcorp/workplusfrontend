@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="navbar">
       <div className="desktime-logo">
-        <i class="fa-solid mr-1 fa-clock"></i>Workplus 2024 All Right Reserved
+        <i className="fa-solid mr-1 fa-clock"></i>Workplus 2024 All Right Reserved
       </div>
       <div className="text-white">Stay Connect!</div>
     </div>

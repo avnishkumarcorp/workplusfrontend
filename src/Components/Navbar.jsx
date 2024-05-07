@@ -4,12 +4,12 @@ import SideBarBtn from "./SideBarBtn"
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="desktime-logo"><i class="fa-solid mr-1 fa-clock"></i>Workplus</div>
+      <div className="desktime-logo"><i className="fa-solid mr-1 fa-clock"></i>Workplus</div>
       <SideBarBtn
       className="w-one-fifty"
               linkPath={ `/login`}
               name="Login"
-              icon={<i class="fa-solid fa-right-to-bracket"></i>}
+              icon={<i className="fa-solid fa-right-to-bracket"></i>}
             />
     </div>
   )
