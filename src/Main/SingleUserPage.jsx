@@ -34,19 +34,26 @@ const SingleUserPage = () => {
 
   const changeUser = useSelector((prev) => prev?.alluser?.singleUser?.data)
 
-  const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
+ 
+  const { loginTime, present, dayOfWeek, loginTimeConvention, logoutTimeConvention, logoutTime } =
+    mainData
 
   const filterCurrentData = () => {
     setDateFilterDep((prev) => !prev)
   }
-
-  console.log(filterDate);
 
   const data1 = new Date(Date.now())
   const data2 = new Date(loginTime)
   const { hours: userHours, minutes: userMinutes } = getHoursMinutesDifference(
     data1,
     data2
+  )
+
+  const data3 = new Date(logoutTime)
+  const data4 = new Date(loginTime)
+  const { hours: userHoursOut, minutes: userMinutesOut } = getHoursMinutesDifference(
+    data3,
+    data4
   )
 
   const productivePercentage = getProductivePercentage(userHours, userMinutes)
@@ -78,16 +85,6 @@ const SingleUserPage = () => {
           <CmBtn data={`Filter`} onClick={filterCurrentData} />
         </div>
       </div>
-
-      <div className="user-info">
-        <p>
-          <b>User Name:</b> {changeUser?.username}
-        </p>
-        <p>
-          <b>User Email:</b> {changeUser?.email}
-        </p>
-      </div>
-
       <div className="chart-box">
         <CardDesign
           heading="Arrival Time"
@@ -105,14 +102,27 @@ const SingleUserPage = () => {
         <CardDesign
           heading="Left Time"
           data={fakeData}
-          contant={present ? "ONLINE" : "OFFLINE"}
-          className={present ? "green-cl" : "red-cl"}
+          contant={
+            logoutTime !== null
+              ? new Date(logoutTime).getHours() +
+                ":" +
+                new Date(logoutTime).getMinutes() +
+                " " + logoutTimeConvention
+              : "NULL"
+          }
         />
         <CardDesign
           heading="Desk Time"
           data={fakeData}
           contant={
             loginTime !== null ? `${userHours}h ${userMinutes}m` : "NULL"
+          }
+        />
+         <CardDesign
+          heading="Today Report Time"
+          data={fakeData}
+          contant={
+            loginTime !== null ? `${userHoursOut}h ${userMinutesOut}m` : "NULL"
           }
         />
         <CardDesign
@@ -132,7 +142,8 @@ const SingleUserPage = () => {
           contant={`${productivePercentage ? productivePercentage : "NULL"} %`}
         />
       </div>
-      <ProcessDataComp pro={singlePro} date={filterDate}  />
+
+      <ProcessDataComp date={filterDate} />
     </CmGap>
   )
 }
