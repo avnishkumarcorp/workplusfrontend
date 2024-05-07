@@ -40,6 +40,8 @@ const SingleUserPage = () => {
     setDateFilterDep((prev) => !prev)
   }
 
+  console.log(filterDate);
+
   const data1 = new Date(Date.now())
   const data2 = new Date(loginTime)
   const { hours: userHours, minutes: userMinutes } = getHoursMinutesDifference(
@@ -70,6 +72,7 @@ const SingleUserPage = () => {
           <input
             type="date"
             className="mr-1 mb-0"
+            value={filterDate}
             onChange={(e) => setFilterDate(e.target.value)}
           />
           <CmBtn data={`Filter`} onClick={filterCurrentData} />
@@ -129,7 +132,7 @@ const SingleUserPage = () => {
           contant={`${productivePercentage ? productivePercentage : "NULL"} %`}
         />
       </div>
-      <ProcessDataComp pro={singlePro} />
+      <ProcessDataComp pro={singlePro} date={filterDate}  />
     </CmGap>
   )
 }

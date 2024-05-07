@@ -5,6 +5,7 @@ import { allReportsFun } from "../Toolkit/AllReportsSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import CmBtn from "../Components/CmBtn"
+import getHoursMinutesDifference from "../data/dateFunctions"
 
 const SingleUserMonthlyReport = () => {
   const [filterDate, setFilterDate] = useState("")
@@ -41,6 +42,13 @@ const SingleUserMonthlyReport = () => {
     (prev) => prev?.allreports
   )
 
+  console.log("all reports", allReports)
+
+  // const { hours: userHours, minutes: userMinutes } = getHoursMinutesDifference(
+  //   new Date(allReports?.loginTime),
+  //   new Date(allReports?.logoutTime)
+  // )
+
   const filterCurrentData = () => {
     setDateFilterDep((prev) => !prev)
   }
@@ -58,14 +66,27 @@ const SingleUserMonthlyReport = () => {
       width: 240,
     },
     {
+      field: "date",
+      headerName: "Date",
+      width: 150,
+      renderCell: (props) => (
+        <p>{new Date(props?.row?.loginTime).toLocaleDateString()}</p>
+      ),
+    },
+    {
       field: "loginTime",
       headerName: "Login Time",
-      width: 250,
+      width: 150,
       renderCell: (props) => (
-        <p>
-          {new Date(props?.row?.loginTime).toLocaleDateString()} | |{" "}
-          {new Date(props?.row?.loginTime).toLocaleTimeString()}
-        </p>
+        <p>{new Date(props?.row?.loginTime).toLocaleTimeString()}</p>
+      ),
+    },
+    {
+      field: "logoutTime",
+      headerName: "Left Time",
+      width: 150,
+      renderCell: (props) => (
+        <p>{new Date(props?.row?.logoutTime).toLocaleTimeString()}</p>
       ),
     },
   ]

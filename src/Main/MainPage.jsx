@@ -25,8 +25,10 @@ const MainPage = () => {
   const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
 
   const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
+  console.log(mainData)
 
-  const { loginTime, present, dayOfWeek, loginTimeConvention } = mainData
+  const { loginTime, present, dayOfWeek, loginTimeConvention, logoutTimeConvention, logoutTime } =
+    mainData
 
   const filterCurrentData = () => {
     setDateFilterDep((prev) => !prev)
@@ -37,6 +39,13 @@ const MainPage = () => {
   const { hours: userHours, minutes: userMinutes } = getHoursMinutesDifference(
     data1,
     data2
+  )
+
+  const data3 = new Date(logoutTime)
+  const data4 = new Date(loginTime)
+  const { hours: userHoursOut, minutes: userMinutesOut } = getHoursMinutesDifference(
+    data3,
+    data4
   )
 
   const productivePercentage = getProductivePercentage(userHours, userMinutes)
@@ -54,6 +63,7 @@ const MainPage = () => {
           <input
             type="date"
             className="mr-1 mb-0"
+            value={filterDate}
             onChange={(e) => setFilterDate(e.target.value)}
           />
           <CmBtn data={`Filter`} onClick={filterCurrentData} />
@@ -76,14 +86,27 @@ const MainPage = () => {
         <CardDesign
           heading="Left Time"
           data={fakeData}
-          contant={present ? "ONLINE" : "OFFLINE"}
-          className={present ? "green-cl" : "red-cl"}
+          contant={
+            logoutTime !== null
+              ? new Date(logoutTime).getHours() +
+                ":" +
+                new Date(logoutTime).getMinutes() +
+                " " + logoutTimeConvention
+              : "NULL"
+          }
         />
         <CardDesign
           heading="Desk Time"
           data={fakeData}
           contant={
             loginTime !== null ? `${userHours}h ${userMinutes}m` : "NULL"
+          }
+        />
+         <CardDesign
+          heading="Today Report Time"
+          data={fakeData}
+          contant={
+            loginTime !== null ? `${userHoursOut}h ${userMinutesOut}m` : "NULL"
           }
         />
         <CardDesign
