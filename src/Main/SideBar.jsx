@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux"
 import CmBtn from "../Components/CmBtn"
 import { logoutFun } from "../Toolkit/AuthSlice"
 import { useNavigate } from "react-router-dom"
+import { sendReportFun } from "../Toolkit/SendReportSlice"
 
 const SideBar = () => {
   const currentUserRole = useSelector(
     (prev) => prev?.auth.currentUser?.data?.roles
   )
+  const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
   const adminRole = currentUserRole?.includes("ADMIN")
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -20,6 +22,18 @@ const SideBar = () => {
       dispatch(logoutFun())
       const token = localStorage.removeItem(key)
       navigate("/login")
+    }
+  }
+
+  const data = {
+    email: userEmail,
+    logoutTime: new Date(),
+  }
+
+  const sendReportFunction = async () => {
+    if (window.confirm("Are you want to Send Your Report ?") == true) {
+      const logoutTimeResponse = await dispatch(sendReportFun(data))
+      console.log(logoutTimeResponse);
     }
   }
 
@@ -55,6 +69,11 @@ const SideBar = () => {
         ) : (
           ""
         )}
+        <CmBtn
+          className="side-btn hover-w"
+          onClick={sendReportFunction}
+          data={`Send Report`}
+        />
         <CmBtn
           className="side-btn hover-w"
           onClick={logoutUser}

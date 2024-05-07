@@ -72,6 +72,7 @@ const SingleUserPage = () => {
           <input
             type="date"
             className="mr-1 mb-0"
+            value={filterDate}
             onChange={(e) => setFilterDate(e.target.value)}
           />
           <CmBtn data={`Filter`} onClick={filterCurrentData} />

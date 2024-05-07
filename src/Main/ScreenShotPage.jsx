@@ -45,6 +45,7 @@ const ScreenShotPage = () => {
           <input
             type="date"
             className="mr-1 mb-0"
+            value={filterDate}
             onChange={(e) => setFilterDate(e.target.value)}
           />
         <CmBtn data={`Add Filter`} onClick={filterCurrentData} />
@@ -59,6 +60,7 @@ const ScreenShotPage = () => {
               key={index}
               image={img?.screenshotUrl}
               time={new Date(img?.screenshotTime).toLocaleTimeString()}
+              date={new Date(img?.screenshotTime).toLocaleDateString()}
             />
           ))}
         </div>
