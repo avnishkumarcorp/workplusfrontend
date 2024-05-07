@@ -62,7 +62,7 @@ const SingleUserMonthlyReport = () => {
     },
     {
       field: "userEmail",
-      headerName: "User Name",
+      headerName: "User Email",
       width: 240,
     },
     {
@@ -71,6 +71,14 @@ const SingleUserMonthlyReport = () => {
       width: 150,
       renderCell: (props) => (
         <p>{new Date(props?.row?.loginTime).toLocaleDateString()}</p>
+      ),
+    },
+    {
+      field: "totalTime",
+      headerName: "Total Working Time",
+      width: 150,
+      renderCell: (props) => (
+        <p>{props?.row?.totalTime}</p>
       ),
     },
     {
@@ -89,6 +97,7 @@ const SingleUserMonthlyReport = () => {
         <p>{new Date(props?.row?.logoutTime).toLocaleTimeString()}</p>
       ),
     },
+    
   ]
 
   return (
