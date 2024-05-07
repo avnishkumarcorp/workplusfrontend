@@ -14,7 +14,6 @@ export const mainDataFun = createAsyncThunk(
 export const mainDataAllFun = createAsyncThunk(
   "getAllMainDataAllFun",
   async ({ email, date }) => {
-    console.log("api call", email, date);
     const mainData = await getQuery(
       `${process.env.REACT_APP_BASE_URL}dailyActivity?email=${email}&date=${date}`
     )

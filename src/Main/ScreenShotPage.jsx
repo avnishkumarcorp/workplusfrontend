@@ -16,7 +16,6 @@ const ScreenShotPage = () => {
   const [dateFilterDep, setDateFilterDep] = useState(false)
   const { useremail } = useParams()
 
-  console.log(filterDate)
   const dispatch = useDispatch()
 
   const filterCurrentData = () => {
@@ -30,7 +29,6 @@ const ScreenShotPage = () => {
   const { allScreenshot, screenshotLoading, screenshotError } = useSelector(
     (prev) => prev?.screenshot
   )
-  console.log(screenshotError)
 
   const userDate = {
     date: filterDate,

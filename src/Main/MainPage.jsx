@@ -25,7 +25,6 @@ const MainPage = () => {
   const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
 
   const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
-  console.log(mainData)
 
   const { loginTime, present, dayOfWeek, loginTimeConvention, logoutTimeConvention, logoutTime } =
     mainData

@@ -33,7 +33,6 @@ const SideBar = () => {
   const sendReportFunction = async () => {
     if (window.confirm("Are you want to Send Your Report ?") == true) {
       const logoutTimeResponse = await dispatch(sendReportFun(data))
-      console.log(logoutTimeResponse);
     }
   }
 

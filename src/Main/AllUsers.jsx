@@ -17,8 +17,7 @@ const AllUsers = () => {
   )
 
   const { pathname } = useLocation();
-  console.log("i a location", pathname);
-
+ 
   const { deleteUser, deluserLoading, delUserError } = useSelector(
     (prev) => prev?.alluser
   )

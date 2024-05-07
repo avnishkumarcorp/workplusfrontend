@@ -16,12 +16,10 @@ const SingleUserMonthlyReport = () => {
 
   useEffect(() => {
     data = filterDate?.split("-")
-    console.log(data)
     setYear(data[0])
     setMonth(data[1])
   }, [filterDate])
 
-  console.log("year Months", filterDate)
   const [dateFilterDep, setDateFilterDep] = useState(false)
 
   const { useremail } = useParams()
@@ -42,8 +40,7 @@ const SingleUserMonthlyReport = () => {
     (prev) => prev?.allreports
   )
 
-  console.log("all reports", allReports)
-
+ 
   // const { hours: userHours, minutes: userMinutes } = getHoursMinutesDifference(
   //   new Date(allReports?.loginTime),
   //   new Date(allReports?.logoutTime)
