@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import "./SideBar.scss"
 import SideBarBtn from "../Components/SideBarBtn"
 import { useDispatch, useSelector } from "react-redux"
@@ -6,11 +6,15 @@ import CmBtn from "../Components/CmBtn"
 import { logoutFun } from "../Toolkit/AuthSlice"
 import { useNavigate } from "react-router-dom"
 import { sendReportFun } from "../Toolkit/SendReportSlice"
+import Snackbar from "@mui/material/Snackbar"
+import Alert from "@mui/material/Alert"
 
 const SideBar = () => {
   const currentUserRole = useSelector(
     (prev) => prev?.auth.currentUser?.data?.roles
   )
+  const [open, setOpen] = useState(false)
+  const [openTwo, setOpenTwo] = useState(false)
   const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
   const adminRole = currentUserRole?.includes("ADMIN")
   const dispatch = useDispatch()
@@ -25,19 +29,59 @@ const SideBar = () => {
     }
   }
 
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return
+    }
+    setOpenTwo(false)
+    setOpen(false)
+  }
+
+  let date = new Date("2024-05-08");
+
+let year = date.getFullYear();
+let month = (date.getMonth() + 1).toString().padStart(2, '0');
+let day = date.getDate().toString().padStart(2, '0');
+
+let formattedDate = `${year}-${month}-${day}`;
+
   const data = {
     email: userEmail,
-    logoutTime: new Date(),
+    localDate: formattedDate,
   }
 
   const sendReportFunction = async () => {
     if (window.confirm("Are you want to Send Your Report ?") == true) {
       const logoutTimeResponse = await dispatch(sendReportFun(data))
+      if (logoutTimeResponse.type === "send-report-data-urls/rejected")
+        return setOpenTwo(true)
+      setOpen(true)
     }
   }
 
   return (
     <div className="sidebar-data">
+      <Snackbar open={openTwo} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="error"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          Report Not Send Succesfully!
+        </Alert>
+      </Snackbar>
+
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          Report Send Succesfully!
+        </Alert>
+      </Snackbar>
       <h3>
         <i className="fa-regular mr-2 fa-clock"></i>Workplus
       </h3>

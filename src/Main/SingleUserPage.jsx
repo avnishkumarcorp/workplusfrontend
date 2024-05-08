@@ -115,7 +115,7 @@ const SingleUserPage = () => {
           heading="Desk Time"
           data={fakeData}
           contant={
-            loginTime !== null ? `${userHours}h ${userMinutes}m` : "NULL"
+            loginTime !== null ? userHours > 10 ? `10h 00m` :  `${userHours}h ${userMinutes}m` : "NULL"
           }
         />
          <CardDesign

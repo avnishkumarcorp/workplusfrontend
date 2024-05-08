@@ -5,7 +5,6 @@ import { allReportsFun } from "../Toolkit/AllReportsSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import CmBtn from "../Components/CmBtn"
-import getHoursMinutesDifference from "../data/dateFunctions"
 
 const SingleUserMonthlyReport = () => {
   const [filterDate, setFilterDate] = useState("")
@@ -79,6 +78,14 @@ const SingleUserMonthlyReport = () => {
       ),
     },
     {
+      field: "present",
+      headerName: "Total Working Time",
+      width: 150,
+      renderCell: (props) => (
+        <p>{props?.row?.present ? "Present" : "Absent"}</p>
+      ),
+    },
+    {
       field: "loginTime",
       headerName: "Login Time",
       width: 150,
@@ -93,8 +100,7 @@ const SingleUserMonthlyReport = () => {
       renderCell: (props) => (
         <p>{new Date(props?.row?.logoutTime).toLocaleTimeString()}</p>
       ),
-    },
-    
+    }, 
   ]
 
   return (
