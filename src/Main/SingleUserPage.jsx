@@ -122,7 +122,7 @@ const SingleUserPage = () => {
           heading="Today Report Time"
           data={fakeData}
           contant={
-            loginTime !== null ? `${userHoursOut}h ${userMinutesOut}m` : "NULL"
+            logoutTime !== null ? `${userHoursOut}h ${userMinutesOut}m` : "0h 0m"
           }
         />
         <CardDesign
