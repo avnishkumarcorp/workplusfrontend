@@ -9,11 +9,11 @@ const ProcessCard = ({ data, index }) => {
       <div className="process-card" key={index}>
         <p className="process-name">
           <b>Process Name : </b>
-          <span>{processName.slice(0, 30)}</span>
+          <span>{processName?.slice(0, 30)}</span>
         </p>
         <p className="process-name">
           <b>Process Path : </b>
-          <span>{processPath.slice(0, 30)}</span>
+          <span>{processPath?.slice(0, 30)}</span>
         </p>
         <p className="process-name">
           <b>Process Date : </b>
