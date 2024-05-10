@@ -126,7 +126,7 @@ const MainPage = () => {
         />
       </div>
 
-      <ProcessDataComp date={filterDate} />
+      <ProcessDataComp date={filterDate} dateFilterDep={dateFilterDep}  />
     </CmGap>
   )
 }
