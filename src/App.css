@@ -79,7 +79,7 @@ body {
 .green-cl {
   color: #49cc90;
 }
-.w-one-fifty{
+.w-one-fifty {
   width: 150px !important;
 }
 
@@ -149,36 +149,51 @@ body {
 }
 
 .user-info p {
- margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
-.hover-w:hover{
+.hover-w:hover {
   background-color: #fff;
   color: #000;
-
 }
 
-.linkactive{
+.linkactive {
   background-color: #000;
   color: #fff;
 }
 
-.css-levciy-MuiTablePagination-displayedRows{
+.css-levciy-MuiTablePagination-displayedRows {
   margin-bottom: 0px !important;
 }
-.css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel{
+.css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel {
   margin-bottom: 0px !important;
 }
 
-@media only screen and (max-width: 768px){
+.image-box-click {
+  position: absolute;
+  height: 80% !important;
+  width: 80% !important;
+  border: 1px solid red;
+  top: 20px;
+  left: 20px;
+}
+
+.my-circle-plus{
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  font-size: 22px;
+  right: 0;
+}
+
+@media only screen and (max-width: 768px) {
   .user-info {
-    grid-template-columns: 1fr  ;
+    grid-template-columns: 1fr;
   }
 }
 
-@media only screen and (max-width: 576px){
+@media only screen and (max-width: 576px) {
   .small-heading {
     font-size: 18px;
   }
 }
-
