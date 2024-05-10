@@ -2,7 +2,14 @@ import React from "react"
 import "./ProcessCard.scss"
 
 const ProcessCard = ({ data, index }) => {
-  const { date, activityType, durationMinutes, processName, processPath } = data
+  const {
+    date,
+    startTime,
+    activityType,
+    durationMinutes,
+    processName,
+    processPath,
+  } = data
 
   return (
     <>
@@ -12,16 +19,12 @@ const ProcessCard = ({ data, index }) => {
           <span>{processName?.slice(0, 30)}</span>
         </p>
         <p className="process-name">
-          <b>Process Path : </b>
-          <span>{processPath?.slice(0, 30)}</span>
-        </p>
-        <p className="process-name">
           <b>Process Date : </b>
           <span>{date}</span>
         </p>
         <p className="process-name">
-          <b>Activity Type : </b>
-          <span>{activityType}</span>
+          <b>Process Time : </b>
+          <span>{new Date(startTime).toLocaleTimeString()}</span>
         </p>
       </div>
     </>
