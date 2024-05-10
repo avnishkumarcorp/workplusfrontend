@@ -7,8 +7,48 @@
   p {
     margin: 0;
     margin-bottom: 5px;
+    color: #fff;
     span {
-      color: #000;
+      color: #fff;
     }
   }
 }
+
+.process-card:nth-child(2n+1){
+  background: #2b5876;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+.process-card:nth-child(2n+2){
+  background: #D31027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EA384D, #D31027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EA384D, #D31027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.process-card:nth-child(2n+3){
+  background: #e65c00;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F9D423, #e65c00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F9D423, #e65c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+
+.process-card:nth-child(2n+4){
+  background: #cc2b5e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+
+.process-card:nth-child(2n+5){
+  background: #1488CC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+
+
+
+
+
+

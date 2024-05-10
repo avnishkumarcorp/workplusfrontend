@@ -8,6 +8,11 @@ const CommonDataTable = ({ rows, columns }) => {
         rows={rows}
         columns={columns}
         slots={{ toolbar: GridToolbar }}
+        slotProps={{
+          toolbar: {
+            showQuickFilter: true,
+          },
+        }}
       />
     </div>
   )

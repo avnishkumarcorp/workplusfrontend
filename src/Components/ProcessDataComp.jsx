@@ -8,13 +8,10 @@ import TableScalaton from "./TableScalaton"
 import NoRecordAdded from "./NoRecordAdded"
 
 const ProcessDataComp = ({ date, pro, dateFilterDep }) => {
-  console.log("i am calling");
   const dispatch = useDispatch()
   const { useremail } = useParams()
 
   const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
-
-
 
   const processdata = {
     date: date,
@@ -32,13 +29,13 @@ const ProcessDataComp = ({ date, pro, dateFilterDep }) => {
 
   useEffect(() => {
     dispatch(allProcessFun(pro ? processdatabyUser : processdata))
-    console.log("i am callingccdcd", dateFilterDep);
   }, [dispatch, dateFilterDep])
 
   return (
     <div className="process-box">
       {processLoading && <TableScalaton />}
       {processError && <NoRecordAdded />}
+      {allprocess.length === 0 && <NoRecordAdded />}
       {allprocess &&
         !processLoading &&
         !processError &&
