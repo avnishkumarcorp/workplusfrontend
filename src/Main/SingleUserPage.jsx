@@ -143,7 +143,7 @@ const SingleUserPage = () => {
         />
       </div>
 
-      <ProcessDataComp date={filterDate} />
+      <ProcessDataComp date={filterDate} pro={singlePro} dateFilterDep={dateFilterDep} />
     </CmGap>
   )
 }

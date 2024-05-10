@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom"
 import TableScalaton from "./TableScalaton"
 import NoRecordAdded from "./NoRecordAdded"
 
-const ProcessDataComp = ({ date, pro }) => {
+const ProcessDataComp = ({ date, pro, dateFilterDep }) => {
+  console.log("i am calling");
   const dispatch = useDispatch()
   const { useremail } = useParams()
 
@@ -31,7 +32,8 @@ const ProcessDataComp = ({ date, pro }) => {
 
   useEffect(() => {
     dispatch(allProcessFun(pro ? processdatabyUser : processdata))
-  }, [dispatch])
+    console.log("i am callingccdcd", dateFilterDep);
+  }, [dispatch, dateFilterDep])
 
   return (
     <div className="process-box">
