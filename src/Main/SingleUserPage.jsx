@@ -85,6 +85,16 @@ const SingleUserPage = () => {
           <CmBtn data={`Filter`} onClick={filterCurrentData} />
         </div>
       </div>
+
+      <div className="user-info">
+        <p>
+          <b>User Name:</b> {changeUser?.username}
+        </p>
+        <p>
+          <b>User Email:</b> {changeUser?.email}
+        </p>
+      </div>
+
       <div className="chart-box">
         <CardDesign
           heading="Arrival Time"
