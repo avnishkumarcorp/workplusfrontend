@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./SideBar.scss"
 import SideBarBtn from "../Components/SideBarBtn"
 import { useDispatch, useSelector } from "react-redux"
+import {useLocation} from "react-router-dom"
 import CmBtn from "../Components/CmBtn"
 import { logoutFun } from "../Toolkit/AuthSlice"
 import { useNavigate } from "react-router-dom"
@@ -19,6 +20,7 @@ const SideBar = () => {
   const adminRole = currentUserRole?.includes("ADMIN")
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const location =  useLocation();
 
   const logoutUser = () => {
     if (window.confirm("Are you sure for Logout?") == true) {
@@ -56,6 +58,7 @@ let formattedDate = `${year}-${month}-${day}`;
       if (logoutTimeResponse.type === "send-report-data-urls/rejected")
         return setOpenTwo(true)
       setOpen(true)
+      window.location.reload();
     }
   }
 

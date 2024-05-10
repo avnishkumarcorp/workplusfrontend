@@ -79,7 +79,7 @@ const SingleUserMonthlyReport = () => {
     },
     {
       field: "present",
-      headerName: "Total Working Time",
+      headerName: "User Present",
       width: 150,
       renderCell: (props) => (
         <p>{props?.row?.present ? "Present" : "Absent"}</p>
