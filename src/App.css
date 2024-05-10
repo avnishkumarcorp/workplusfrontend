@@ -169,3 +169,16 @@ body {
 .css-rtrcn9-MuiTablePagination-root .MuiTablePagination-selectLabel{
   margin-bottom: 0px !important;
 }
+
+@media only screen and (max-width: 768px){
+  .user-info {
+    grid-template-columns: 1fr  ;
+  }
+}
+
+@media only screen and (max-width: 576px){
+  .small-heading {
+    font-size: 18px;
+  }
+}
+
