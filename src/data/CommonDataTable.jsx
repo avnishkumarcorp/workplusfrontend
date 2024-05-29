@@ -1,7 +1,7 @@
 import { DataGrid, GridToolbar } from "@mui/x-data-grid"
 import React from "react"
 
-const CommonDataTable = ({ rows, columns }) => {
+const CommonDataTable = ({ rows, columns, getRowId }) => {
   return (
     <div style={{ height: "100%", width: "100%" }}>
       <DataGrid
