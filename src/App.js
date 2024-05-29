@@ -12,6 +12,7 @@ import ReportsPage from "./Main/ReportsPage"
 import AllReportsUser from "./Main/AllReportsUser"
 import SingleUserMonthlyReport from "./Main/SingleUserMonthlyReport"
 import { useSelector } from "react-redux"
+import AddNewIP from "./Main/AddNewIP"
 
 function App() {
   const authStatus = useSelector((state) => state.auth.isAuth)
@@ -29,6 +30,7 @@ function App() {
             element={authStatus ? <MainOutlet /> : <Navigate to="/login" />}
           >
             <Route path="" element={<MainPage />} />
+            <Route path="ipaddress" element={<AddNewIP />} />
             <Route
               path="screenshot"
               element={
