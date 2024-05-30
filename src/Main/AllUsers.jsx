@@ -7,7 +7,6 @@ import TableComp from "../Components/TableComp"
 import CmModel from "../Model/CmModel"
 import CreateUserModel from "../Model/CreateUserModel"
 import { Link, useLocation } from "react-router-dom"
-import NoRecordAdded from "../Components/NoRecordAdded"
 
 const AllUsers = () => {
   const dispatch = useDispatch()
@@ -16,8 +15,8 @@ const AllUsers = () => {
     (prev) => prev?.alluser
   )
 
-  const { pathname } = useLocation();
- 
+  const { pathname } = useLocation()
+
   const { deleteUser, deluserLoading, delUserError } = useSelector(
     (prev) => prev?.alluser
   )
@@ -31,6 +30,10 @@ const AllUsers = () => {
       const delUser = await dispatch(deleteUserFun({ id: id }))
     }
   }
+
+  // const editExistUserFun = async () => {
+  //   console.log("Edit User")
+  // }
 
   const columns = [
     { field: "id", headerName: "ID", width: 60 },
@@ -46,22 +49,31 @@ const AllUsers = () => {
     {
       field: "createdAt",
       headerName: "Created Date",
-      width: 200,
+      width: 150,
       renderCell: (props) => (
         <p>{new Date(props?.row?.createdAt).toLocaleDateString()}</p>
       ),
     },
-
     {
       field: "role",
       headerName: "Role",
       width: 100,
       renderCell: (props) => <p>{props?.row?.roles[0]}</p>,
     },
+    // {
+    //   field: "Edit",
+    //   headerName: "Edit",
+    //   width: 90,
+    //   renderCell: (props) => (
+    //     <p onClick={() => editExistUserFun(props?.row?.id)}>
+    //       <i class="fa-solid fa-pencil"></i>
+    //     </p>
+    //   ),
+    // },
     {
       field: "Delete",
       headerName: "Delete",
-      width: 200,
+      width: 90,
       renderCell: (props) => (
         <p onClick={() => deleteExistUserFun(props?.row?.id)}>
           <i className="fa-solid fa-trash"></i>
@@ -73,7 +85,13 @@ const AllUsers = () => {
   return (
     <CmGap>
       <div className="align-between">
-        <MdHeading data={pathname === '/workplus/users' ? `All Users Report` : "All Users Screenshot"} />
+        <MdHeading
+          data={
+            pathname === "/workplus/users"
+              ? `All Users Report`
+              : "All Users Screenshot"
+          }
+        />
         <CmModel
           data={`Create New user`}
           modelhead={"create User"}

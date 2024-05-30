@@ -11,6 +11,7 @@ import AllProcessSlice from "./AllProcessSlice"
 import AllReportsSlice from "./AllReportsSlice"
 import ScreenShotSlice from "./ScreenShotSlice"
 import SendReportSlice from "./SendReportSlice"
+import DailyActivitySlice from "./DailyActivitySlice"
 
 const reducers = combineReducers({
   auth: AuthSlice,
@@ -21,6 +22,7 @@ const reducers = combineReducers({
   allreports: AllReportsSlice,
   screenshot: ScreenShotSlice,
   sendReport: SendReportSlice,
+  activity: DailyActivitySlice,
 })
 
 const persistConfig = {

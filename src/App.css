@@ -171,6 +171,13 @@ body {
   color: #938c8c;
 }
 
+.start-btn{
+  background-color: #c850c0;
+  color: #fff;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
 .css-levciy-MuiTablePagination-displayedRows{
   margin-bottom: 0px !important;
 }

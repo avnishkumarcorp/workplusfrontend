@@ -15,6 +15,8 @@ const ScreenPhoto = ({ index, image, time, date }) => {
       imgRef.current.style.margin = "auto"
       imgRef.current.style.height = "80vh"
       imgRef.current.style.width = "90vw"
+      imgRef.current.style.border = "2px solid #fff"
+      imgRef.current.style.boxShadow = "0px 15px 20px rgba(0,0,0,.5)"
       imgRef.current.style.zIndex = "1000"
       imgRef.current.style.backdropFilter = "blur(10px)"
     }
@@ -22,7 +24,6 @@ const ScreenPhoto = ({ index, image, time, date }) => {
 
   const imageSmaller = () => {
     if (imgRef.current) {
-      console.log("function call small")
       imgRef.current.style.position = "relative"
       imgRef.current.style.top = "0px"
       imgRef.current.style.left = "0px"
@@ -30,6 +31,8 @@ const ScreenPhoto = ({ index, image, time, date }) => {
       imgRef.current.style.width = "100%"
       imgRef.current.style.zIndex = "1"
       imgRef.current.style.backdropFilter = "none"
+      imgRef.current.style.border = "none"
+      imgRef.current.style.boxShadow = "none"
     }
   }
 
