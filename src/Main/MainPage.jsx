@@ -10,24 +10,43 @@ import { getProductivePercentage } from "../data/dateFunctions"
 import getHoursMinutesDifference from "../data/dateFunctions"
 import ProcessDataComp from "../Components/ProcessDataComp"
 import CmBtn from "../Components/CmBtn"
+import { DailyActivityFun } from "../Toolkit/DailyActivitySlice"
 
 const MainPage = () => {
   const [filterDate, setFilterDate] = useState(
     new Date().toISOString().split("T")[0]
   )
   const [dateFilterDep, setDateFilterDep] = useState(false)
+  const [startTimeDep, setStartTimeDep] = useState(false)
+
+  const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
+
+  const { ActivityLoading } = useSelector(
+    (prev) => prev?.activity
+  )
+
+  const [dailyTimer, setDailyTimer] = useState({
+    email: userEmail,
+    date: new Date().toISOString().split("T")[0],
+    loginTime: new Date(),
+  })
+
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(mainDataFun(userDate))
-  }, [dispatch, dateFilterDep])
-
-  const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
+  }, [dispatch, dateFilterDep, startTimeDep])
 
   const mainData = useSelector((prev) => prev?.mainData?.mainApiData)
 
-  const { loginTime, present, dayOfWeek, loginTimeConvention, logoutTimeConvention, logoutTime } =
-    mainData
+  const {
+    loginTime,
+    present,
+    dayOfWeek,
+    loginTimeConvention,
+    logoutTimeConvention,
+    logoutTime,
+  } = mainData
 
   const filterCurrentData = () => {
     setDateFilterDep((prev) => !prev)
@@ -42,16 +61,22 @@ const MainPage = () => {
 
   const data3 = new Date(logoutTime)
   const data4 = new Date(loginTime)
-  const { hours: userHoursOut, minutes: userMinutesOut } = getHoursMinutesDifference(
-    data3,
-    data4
-  )
+  const { hours: userHoursOut, minutes: userMinutesOut } =
+    getHoursMinutesDifference(data3, data4)
 
   const productivePercentage = getProductivePercentage(userHours, userMinutes)
 
   const userDate = {
     date: filterDate,
     email: userEmail,
+  }
+
+  const startMorningTimeFun = async () => {
+    const morningTime = await dispatch(DailyActivityFun(dailyTimer))
+    if ((morningTime.type = "send-daily-activity/fulfilled")) {
+      setStartTimeDep((prev) => !prev)
+    }
+    console.log(morningTime)
   }
 
   return (
@@ -66,6 +91,11 @@ const MainPage = () => {
             onChange={(e) => setFilterDate(e.target.value)}
           />
           <CmBtn data={`Filter`} onClick={filterCurrentData} />
+          <CmBtn
+            className="start-btn"
+            data={`${ActivityLoading ? "Please wait..": "Start Time" }`}
+            onClick={startMorningTimeFun}
+          />
         </div>
       </div>
       <div className="chart-box">
@@ -74,9 +104,9 @@ const MainPage = () => {
           data={fakeData}
           contant={
             loginTime !== null
-              ? new Date(loginTime).getHours().toString().padStart(2, '0') +
+              ? new Date(loginTime).getHours().toString().padStart(2, "0") +
                 ":" +
-                new Date(loginTime).getMinutes().toString().padStart(2, '0') +
+                new Date(loginTime).getMinutes().toString().padStart(2, "0") +
                 " " +
                 loginTimeConvention
               : "NULL"
@@ -87,10 +117,11 @@ const MainPage = () => {
           data={fakeData}
           contant={
             logoutTime !== null
-              ? new Date(logoutTime).getHours().toString().padStart(2, '0') +
+              ? new Date(logoutTime).getHours().toString().padStart(2, "0") +
                 ":" +
-                new Date(logoutTime).getMinutes().toString().padStart(2, '0') +
-                " " + logoutTimeConvention
+                new Date(logoutTime).getMinutes().toString().padStart(2, "0") +
+                " " +
+                logoutTimeConvention
               : "NULL"
           }
         />
@@ -98,14 +129,20 @@ const MainPage = () => {
           heading="Desk Time"
           data={fakeData}
           contant={
-            loginTime !== null ? userHours > 10 ? `10h 00m` :  `${userHours}h ${userMinutes}m` : "NULL"
+            loginTime !== null
+              ? userHours > 10
+                ? `10h 00m`
+                : `${userHours}h ${userMinutes}m`
+              : "NULL"
           }
         />
-         <CardDesign
+        <CardDesign
           heading="Today Report Time"
           data={fakeData}
           contant={
-            logoutTime !== null ? `${userHoursOut}h ${userMinutesOut}m` : "0h 0m"
+            logoutTime !== null
+              ? `${userHoursOut}h ${userMinutesOut}m`
+              : "0h 0m"
           }
         />
         <CardDesign
@@ -126,7 +163,7 @@ const MainPage = () => {
         />
       </div>
 
-      <ProcessDataComp date={filterDate} dateFilterDep={dateFilterDep}  />
+      <ProcessDataComp date={filterDate} dateFilterDep={dateFilterDep} />
     </CmGap>
   )
 }

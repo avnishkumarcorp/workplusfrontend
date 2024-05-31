@@ -5,6 +5,9 @@ import { allReportsFun } from "../Toolkit/AllReportsSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import CmBtn from "../Components/CmBtn"
+import TableScalaton from "../Components/TableScalaton"
+import NoRecordAdded from "../Components/NoRecordAdded"
+import CommonDataTable from "../data/CommonDataTable"
 
 const SingleUserMonthlyReport = () => {
   const [filterDate, setFilterDate] = useState("")
@@ -39,7 +42,6 @@ const SingleUserMonthlyReport = () => {
     (prev) => prev?.allreports
   )
 
- 
   // const { hours: userHours, minutes: userMinutes } = getHoursMinutesDifference(
   //   new Date(allReports?.loginTime),
   //   new Date(allReports?.logoutTime)
@@ -50,7 +52,14 @@ const SingleUserMonthlyReport = () => {
   }
 
   const columns = [
-    { field: "id", headerName: "ID", width: 80 },
+    {
+      field: "index",
+      headerName: "ID",
+      width: 80,
+      renderCell: (props) => (
+        <p>{props.row.index + 1}</p> // Adding 1 to make index 1-based
+      ),
+    },
     {
       field: "userName",
       headerName: "User Name",
@@ -73,9 +82,7 @@ const SingleUserMonthlyReport = () => {
       field: "totalTime",
       headerName: "Total Working Time",
       width: 150,
-      renderCell: (props) => (
-        <p>{props?.row?.totalTime}</p>
-      ),
+      renderCell: (props) => <p>{props?.row?.totalTime}</p>,
     },
     {
       field: "present",
@@ -100,8 +107,13 @@ const SingleUserMonthlyReport = () => {
       renderCell: (props) => (
         <p>{new Date(props?.row?.logoutTime).toLocaleTimeString()}</p>
       ),
-    }, 
+    },
   ]
+
+  const rowsWithIndex = allReports.map((report, index) => ({
+    ...report,
+    index,
+  }))
 
   return (
     <>
@@ -124,7 +136,7 @@ const SingleUserMonthlyReport = () => {
       <TableComp
         loading={reportsLoading}
         error={reportsError}
-        data={allReports}
+        data={rowsWithIndex}
         col={columns}
       />
     </>

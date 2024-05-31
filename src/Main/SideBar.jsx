@@ -118,7 +118,7 @@ let formattedDate = `${year}-${month}-${day}`;
          <SideBarBtn
               linkPath={`ipaddress`}
               name="IP"
-              icon={<i class="fa-solid fa-mobile-screen-button"></i>}
+              icon={<i className="fa-solid fa-mobile-screen-button"></i>}
             />
         <CmBtn
           className="side-btn hover-w"

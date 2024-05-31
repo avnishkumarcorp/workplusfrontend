@@ -163,6 +163,21 @@ body {
   color: #fff;
 }
 
+.cross-click{
+  position: absolute;
+  top: 0;
+  font-size: 20px;
+  transition: opacity 0.3s ease-in-out;
+  color: #938c8c;
+}
+
+.start-btn{
+  background-color: #c850c0;
+  color: #fff;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
 .css-levciy-MuiTablePagination-displayedRows{
   margin-bottom: 0px !important;
 }
