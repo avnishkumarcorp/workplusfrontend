@@ -98,7 +98,7 @@ let formattedDate = `${year}-${month}-${day}`;
           <>
             <SideBarBtn
               linkPath={`screenshot`}
-              name="Screen Shot"
+              name="Screen Shot" 
               icon={<i className="fa-regular fa-image"></i>}
             />
             <SideBarBtn
@@ -111,15 +111,22 @@ let formattedDate = `${year}-${month}-${day}`;
               name="Reports"
               icon={<i className="fa-regular fa-file-word"></i>}
             />
+             <SideBarBtn
+              linkPath={`monthly-report`}
+              name="Monthly Report"
+              icon={<i className="fa-regular fa-file-word"></i>}
+            />
+           <SideBarBtn
+              linkPath={`ipaddress`}
+              name="IP"
+              icon={<i className="fa-solid fa-mobile-screen-button"></i>}
+            /> 
           </>
         ) : (
           ""
         )}
-         <SideBarBtn
-              linkPath={`ipaddress`}
-              name="IP"
-              icon={<i className="fa-solid fa-mobile-screen-button"></i>}
-            />
+        
+
         <CmBtn
           className="side-btn hover-w"
           onClick={sendReportFunction}

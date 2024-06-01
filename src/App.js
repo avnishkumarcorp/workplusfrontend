@@ -13,6 +13,7 @@ import AllReportsUser from "./Main/AllReportsUser"
 import SingleUserMonthlyReport from "./Main/SingleUserMonthlyReport"
 import { useSelector } from "react-redux"
 import AddNewIP from "./Main/AddNewIP"
+import MonthlyReport from "./Main/MonthlyReport"
 
 function App() {
   const authStatus = useSelector((state) => state.auth.isAuth)
@@ -47,6 +48,7 @@ function App() {
               <Route path="" element={<ReportsPage />} />
               <Route path=":useremail" element={<SingleUserMonthlyReport />} />
             </Route>
+            <Route path="monthly-report" element={<MonthlyReport />} />
 
             <Route path="users" element={<AllUsers />} />
             <Route path="users/:useremail" element={<SingleUserPage />} />
