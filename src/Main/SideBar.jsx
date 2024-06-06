@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./SideBar.scss"
 import SideBarBtn from "../Components/SideBarBtn"
 import { useDispatch, useSelector } from "react-redux"
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import CmBtn from "../Components/CmBtn"
 import { logoutFun } from "../Toolkit/AuthSlice"
 import { useNavigate } from "react-router-dom"
@@ -20,7 +20,7 @@ const SideBar = () => {
   const adminRole = currentUserRole?.includes("ADMIN")
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const location =  useLocation();
+  const location = useLocation()
 
   const logoutUser = () => {
     if (window.confirm("Are you sure for Logout?") == true) {
@@ -39,13 +39,13 @@ const SideBar = () => {
     setOpen(false)
   }
 
-  let date = new Date();
+  let date = new Date()
 
-let year = date.getFullYear();
-let month = (date.getMonth() + 1).toString().padStart(2, '0');
-let day = date.getDate().toString().padStart(2, '0');
+  let year = date.getFullYear()
+  let month = (date.getMonth() + 1).toString().padStart(2, "0")
+  let day = date.getDate().toString().padStart(2, "0")
 
-let formattedDate = `${year}-${month}-${day}`;
+  let formattedDate = `${year}-${month}-${day}`
 
   const data = {
     email: userEmail,
@@ -58,7 +58,7 @@ let formattedDate = `${year}-${month}-${day}`;
       if (logoutTimeResponse.type === "send-report-data-urls/rejected")
         return setOpenTwo(true)
       setOpen(true)
-      window.location.reload();
+      window.location.reload()
     }
   }
 
@@ -98,7 +98,7 @@ let formattedDate = `${year}-${month}-${day}`;
           <>
             <SideBarBtn
               linkPath={`screenshot`}
-              name="Screen Shot" 
+              name="Screen Shot"
               icon={<i className="fa-regular fa-image"></i>}
             />
             <SideBarBtn
@@ -111,21 +111,31 @@ let formattedDate = `${year}-${month}-${day}`;
               name="Reports"
               icon={<i className="fa-regular fa-file-word"></i>}
             />
-             <SideBarBtn
+            <SideBarBtn
               linkPath={`monthly-report`}
               name="Monthly Report"
               icon={<i className="fa-regular fa-file-word"></i>}
             />
-           <SideBarBtn
+            <SideBarBtn
               linkPath={`ipaddress`}
               name="IP"
               icon={<i className="fa-solid fa-mobile-screen-button"></i>}
-            /> 
+            />
+            <SideBarBtn
+              linkPath={`userlist`}
+              name="User List Gap"
+              icon={<i class="fa-solid fa-arrows-left-right-to-line"></i>}
+            />
           </>
         ) : (
           ""
         )}
-        
+
+        <SideBarBtn
+          linkPath={`gap`}
+          name="Gap"
+          icon={<i class="fa-solid fa-arrows-left-right-to-line"></i>}
+        />
 
         <CmBtn
           className="side-btn hover-w"

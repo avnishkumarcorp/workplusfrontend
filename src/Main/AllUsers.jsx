@@ -17,6 +17,8 @@ const AllUsers = () => {
 
   const { pathname } = useLocation()
 
+  console.log(pathname);
+
   const { deleteUser, deluserLoading, delUserError } = useSelector(
     (prev) => prev?.alluser
   )
@@ -60,16 +62,6 @@ const AllUsers = () => {
       width: 100,
       renderCell: (props) => <p>{props?.row?.roles[0]}</p>,
     },
-    // {
-    //   field: "Edit",
-    //   headerName: "Edit",
-    //   width: 90,
-    //   renderCell: (props) => (
-    //     <p onClick={() => editExistUserFun(props?.row?.id)}>
-    //       <i class="fa-solid fa-pencil"></i>
-    //     </p>
-    //   ),
-    // },
     {
       field: "Delete",
       headerName: "Delete",
@@ -89,7 +81,7 @@ const AllUsers = () => {
           data={
             pathname === "/workplus/users"
               ? `All Users Report`
-              : "All Users Screenshot"
+              : pathname ===  '/workplus/userlist' ? "All User List" : "All Users Screenshot"
           }
         />
         <CmModel
