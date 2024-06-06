@@ -185,6 +185,27 @@ body {
   margin-bottom: 0px !important;
 }
 
+.gap-time{
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gap-time p {
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  background-color: #4158d0;
+  color: #fff;
+}
+
+
+
 @media only screen and (max-width: 768px){
   .user-info {
     grid-template-columns: 1fr  ;

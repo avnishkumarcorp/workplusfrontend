@@ -72,6 +72,10 @@ const GapPage = () => {
     index,
   }))
 
+  const totalGapMinute = allGapData.reduce((accumulator, item) => accumulator + parseInt(item.gapTime), 0);
+
+  console.log("total gap minute", totalGapMinute);
+
   console.log(gapReport)
 
   return (
@@ -86,6 +90,10 @@ const GapPage = () => {
             onChange={(e) => setFilterDate(e.target.value)}
           />
         </div>
+      </div>
+
+      <div className="gap-time">
+        <p>GapTime Total is : <b>{totalGapMinute}</b> Minute</p>
       </div>
 
       <TableComp
