@@ -14,6 +14,7 @@ import SingleUserMonthlyReport from "./Main/SingleUserMonthlyReport"
 import { useSelector } from "react-redux"
 import AddNewIP from "./Main/AddNewIP"
 import MonthlyReport from "./Main/MonthlyReport"
+import GapPage from "./Main/GapPage"
 
 function App() {
   const authStatus = useSelector((state) => state.auth.isAuth)
@@ -31,14 +32,14 @@ function App() {
             element={authStatus ? <MainOutlet /> : <Navigate to="/login" />}
           >
             <Route path="" element={<MainPage />} />
+            <Route path="gap" element={<GapPage />} />
+
             <Route path="ipaddress" element={<AddNewIP />} />
             <Route
               path="screenshot"
-              element={
-                authStatus ? <AllUsers /> : <Navigate to="/login" />
-              }
+              element={authStatus ? <AllUsers /> : <Navigate to="/login" />}
             />
-             <Route
+            <Route
               path="screenshot/:useremail"
               element={
                 authStatus ? <ScreenShotPage /> : <Navigate to="/login" />
@@ -49,6 +50,9 @@ function App() {
               <Route path=":useremail" element={<SingleUserMonthlyReport />} />
             </Route>
             <Route path="monthly-report" element={<MonthlyReport />} />
+
+            <Route path="userlist" element={<AllUsers />} />
+            <Route path="userlist/:useremail" element={<GapPage />} />
 
             <Route path="users" element={<AllUsers />} />
             <Route path="users/:useremail" element={<SingleUserPage />} />

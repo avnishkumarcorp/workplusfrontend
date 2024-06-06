@@ -21,9 +21,7 @@ const MainPage = () => {
 
   const userEmail = useSelector((prev) => prev?.auth?.currentUser?.data?.email)
 
-  const { ActivityLoading } = useSelector(
-    (prev) => prev?.activity
-  )
+  const { ActivityLoading } = useSelector((prev) => prev?.activity)
 
   const [dailyTimer, setDailyTimer] = useState({
     email: userEmail,
@@ -45,6 +43,8 @@ const MainPage = () => {
     dayOfWeek,
     loginTimeConvention,
     logoutTimeConvention,
+    attendanceType,
+    gapTime,
     logoutTime,
   } = mainData
 
@@ -93,7 +93,7 @@ const MainPage = () => {
           <CmBtn data={`Filter`} onClick={filterCurrentData} />
           <CmBtn
             className="start-btn"
-            data={`${ActivityLoading ? "Please wait..": "Start Time" }`}
+            data={`${ActivityLoading ? "Please wait.." : "Start Time"}`}
             onClick={startMorningTimeFun}
           />
         </div>
@@ -160,6 +160,16 @@ const MainPage = () => {
           heading="Productivity"
           data={fakeData}
           contant={`${productivePercentage ? productivePercentage : "NULL"} %`}
+        />
+        <CardDesign
+          heading="Today Presence"
+          data={fakeData}
+          contant={`${attendanceType ? attendanceType : "NULL"} `}
+        />
+        <CardDesign
+          heading="Today Break Time"
+          data={fakeData}
+          contant={`${gapTime ? gapTime : "NULL"} minutes`}
         />
       </div>
 
